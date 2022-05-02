@@ -4,11 +4,11 @@
 <a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
 </p>
 
-# Eu, Presidente
+# Yamaha Management System 
 
-## CF88
+## Gakki 
 
-## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Eric Tachdjian</a>, <a href="https://www.linkedin.com/in/victorbarq/">Gabriel Pascoli</a>, <a href="https://www.linkedin.com/in/victorbarq/">Luiz Augusto Ferreira</a>, <a href="https://www.linkedin.com/in/victorbarq/">Pedro Munhoz</a>, <a href="https://www.linkedin.com/in/pedrocrezende/">Pedro Rezende</a>, <a href="https://www.linkedin.com/in/sergiobalucas/">Sergio Lucas</a>, <a href="https://www.linkedin.com/in/victorbarq/">Vinicius Souza</a>. 
+## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Beatriz Hirasaki</a>, <a href="https://www.linkedin.com/in/frederico-schur-6a3313237/">Frederico Schur</a>, <a href="https://www.linkedin.com/in/gutopompeo/">Luiz Augusto Ferreira</a>, <a href="https://www.linkedin.com/in/luiz-carlos-da-silva-j%C3%BAnior-82a0a5216/">Luiz Carlos da Silva</a>, <a href="https://www.linkedin.com/in/pedro-silva-14343022a/">Pedro Silva</a>, <a href="https://www.linkedin.com/in/sergiobalucas/">Sergio Lucas</a>, <a href="https://www.linkedin.com/in/thain%C3%A1-lima-169177232/">Thainá Lima</a>. 
 
 ## Descrição
 
@@ -126,7 +126,7 @@ A cada atualização os detalhes devem ser lançados aqui.
 
 ## 📋 Licença/License
 
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/ConsFed88/Template---modelo">Eu, Presidente</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/ConsFed88">CF88</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/2022M2T3/Projeto5">Yamaha Project Management</a> by <span property="cc:attributionName">Grupo Gakki</span> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
 
 ## 🎓 Referências
 
