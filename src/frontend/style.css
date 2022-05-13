@@ -1,0 +1,291 @@
+/* RESET CSS */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.contents {
+    display: flex;
+}
+
+/* THAINA */ 
+#novo-projeto{
+    text-align: center;
+    width: 100%;
+}
+
+#botao {
+    border-radius: 30px;
+    background-color:#0729d8;
+    color:white;
+    padding: 10px;
+    margin: 30px;
+    }
+
+#novo-projeto p{
+     text-align: center;
+     margin: 10px;
+}
+#novo-projeto h1{
+    text-align: center;
+    /* margin: 30px; */
+    font-size: 50px;
+}
+#novo-projeto h2{
+    text-align: center;
+    /* margin:50px; */
+}
+
+#adicionar-projeto{
+    text-align: center;
+}
+/* SERGJAO */ 
+
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    background-color: #f2f2f2;
+}
+
+#usuario, #logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+}
+
+#usuario p {
+    margin-right: 1rem;
+}
+
+#linhavermelha {
+    padding: 0.4em;
+    background-color: #E53420;
+}
+
+#navbar {
+    display: flex;
+    flex-direction: column;
+    background-color: #0A0A6A;
+    min-width: 7.5%;
+    max-width: 7.5%;
+    height: 100vh;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#navbar a {
+    color: #fff;
+}
+
+#juntano {
+    display: flex;
+}
+
+/* FRED */ 
+#barGrafico{
+    width: 10%;
+}
+
+.graphs{
+    background-color: #f2f2f2;
+}
+
+/* PEDRO */
+.info-extras{
+    background-color: #F2F2F2;
+    height: 150px;
+}
+
+.info-extras h3{
+    text-align: center;
+}
+
+.tabela-projetos{
+    background-color: #F2F2F2;
+    height: 350px;
+}
+
+.adicionar-func{
+    border-style: none;
+    color: white;
+    background-color: #0A0A6A;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.adicionar-func:hover{
+    background-color: rgb(66, 66, 170);
+}
+
+#adicionar-func{
+    text-align: center;
+}
+
+select{
+    width: 35%;
+    height: 60%;
+}
+
+.container p{
+    text-align: center;
+}
+
+#btnradio1{
+    background-color: red;
+}
+
+.btn-group{
+    margin-left: 10px;
+}
+
+
+/* GUTO */
+.img-fluid{
+    position: relative;
+    right: 15px;
+}
+.login{
+    padding: 50px;
+    position: relative;
+    left: 50px;
+}
+
+.login input{
+    width: 300px;
+    height: 40px;
+}
+
+.login button a{
+    text-decoration: none;
+    color: white;
+}
+
+.login button{
+    width: 300px;
+}
+
+.login h1{
+    font-family: 'Roboto';
+    font-weight: bold;
+    width: 90%;
+}
+
+.login h2{
+    font-family: 'Roboto';
+    font-weight: bold;
+}
+#pagina-login{
+    display: flex;
+    flex-direction: column;
+}
+#login {
+    display: flex;
+    flex-direction: row;
+}
+
+#login img {
+    width: 80vh;
+    height: 100vh;
+}
+#texto_bem_vindo{
+    align-self: center;
+    display: flex;
+    margin: 60px;
+
+}
+#texto_bem_vindo h1{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 38px;
+    text-align: center;
+
+}
+#login_texto{
+    display: flex;
+    justify-content:flex-start;
+    margin: 1px;
+}
+
+#login_texto h1 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 38px;
+}
+#indentifique_texto{
+    margin: 1px;
+}
+
+#indentifique_texto h1 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    
+}
+#exampleInputEmail1{
+    width: 499px;
+    height: 60px;
+    left: 804px;
+    top: 422px;
+}
+#exampleInputPassword1{
+    width: 499px;
+    height: 60px;
+    left: 804px;
+    top: 544px;
+}
+.botao_acessar{
+    width: 499px;
+    height: 60px;
+    background: #0A0A6A;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+}
+
+#Registro{
+    display: flex
+    align-items: center;
+    margin: 19px;
+
+}
+
+
+
+/* BIA */ 
+
+#cont-tabela {
+    display: flex;
+    flex-direction: row;
+    background-color: lightgray;
+}
