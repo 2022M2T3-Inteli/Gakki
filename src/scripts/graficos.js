@@ -1,7 +1,5 @@
-// Gráfico de barra
-// Selecionando o elemento com o id barGrafico
+//Gráfico bar
 let barGrafico = document.getElementById('barGrafico');
-// Criando as configurações do gráfico
 const config = {
     type: 'bar',
     data: { labels: [
@@ -27,15 +25,13 @@ const config = {
       ],
     }],
     }
-};
-// Instanciando um novo gráfico, passando como argumento o elemento que armazenará o gráfico e a variável que contém as informações do gráfico
-let myBarGrafico = new Chart(barGrafico, config);
+}
 
+let myGraph = new Chart(barGrafico, config);
+//Gráfico bar
 
-// Gráfico pizza
-// Selecionando o elemento com o id pieGrafico
+//Gráfico pie
 let pieGrafico = document.getElementById('pieGrafico');
-// Criando as configurações do gráfico
 const dataPie = {
     labels: [
       'Programadores',
@@ -58,16 +54,15 @@ const dataPie = {
     type: 'pie',
     data: dataPie,
 };  
-// Instanciando um novo gráfico, passando como argumento o elemento que armazenará o gráfico e a variável que contém as informações do gráfico
+
+
 let myPieGrafico = new Chart(pieGrafico, configPie);
+// Gráfico pie
 
 
-
-// Gráfico de linha
-// Selecionando o elemento com o id lineGrafico
+// Gráfico line
 let lineGrafico = document.getElementById('lineGrafico');
 
-// Criando as configurações do gráfico
 const labels = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'];
 const dataLine = {
   labels: labels,
@@ -85,5 +80,35 @@ const configLine = {
     data: dataLine,
 };
 
-// Instanciando um novo gráfico, passando como argumento o elemento que armazenará o gráfico e a variável que contém as informações do gráfico
 let myLineGrafico = new Chart(lineGrafico, configLine);
+// Gráfico line
+
+// Gráfico Polar
+
+let polarGrafico = document.getElementById('polarGrafico'); 
+
+const dataPolar = {
+  labels: [
+    'Sobrecarregado',
+    'Abaixo do Carga',
+    'Quase no Limite',
+    'Carga completa'
+  ],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [11, 16, 7, 3],
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(75, 192, 192)',
+      'rgb(255, 205, 86)',
+      'rgb(54, 162, 235)'
+    ]
+  }]
+};
+
+const configPolar = {
+  type: 'polarArea',
+  data: dataPolar,
+};
+
+let myPolarGrafico = new Chart(polarGrafico, configPolar);
