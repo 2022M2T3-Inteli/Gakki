@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -80,67 +80,52 @@
           </div>
         </div>
         <div class="progress">
-          <div class="progress-project"></div>
+          <div class="progress-project agendar"></div>
           <div class="progress-full"></div>
         </div>
         <div class="contents">  
           <!--Container que agrupa os elementos do formulário da página-->
           <div class="container mt-5">
             <div class="title">
-              <h1 id="adicionar-projeto">Novo projeto</h1>
-              <p>Coloque as informações do projeto conforme o necessário.</p>
+                <h1 id="agendar-projeto">Agendar Projeto</h1>
+                <p>Insira em qual mês o projeto começará a ser realizado.</p>
             </div>
             <div class="rows">
               <!--Linha que contém o input nome-->
               <div class="row1">
                 <div class="offset-4 col-8">
-                    <p>Nome</p>
-                    <input type="text" name="nome" id="nome" placeholder="Ex. Implantação de um sistema ERP; Desenvolvimento de um novo produto; etc.">
+                    <p>Data Inicial</p>
+                    <input type="date" id="inicial">
+                    <div class="ignore">
+                        <input type="checkbox" name="ignorainicial" id="ignorainicial" onclick="disable()">
+                        <p>Não tem</p>
+                    </div>
                 </div>    
               </div>
             <!--Fim da linha que contém o input nome-->
-
-            <!--Linha que contém o input descrição-->
-            <div class="row2">
-                <div class="offset-4 col-8 mt-3">
-                    <p>Descrição(opcional)</p> 
-                    <textarea name="descricao" id="descricao" cols="30" rows="5" placeholder="Ex. Sistema para manter controle das entregas do chão de fábrica"></textarea>
-                </div>
-            </div>
-            <!--Fim da linha que contém o input descrição-->
-
-            <!--Linha que contém o input governança responsável-->
-            <div class="row1">
-              <label for="governanca" id="labelTipo2">Cidade</label>
-              <br>
-              <select name="governanca" id="tipo2">
-                  <option value="selecione">Selecione</option>
-                  <option value="opcao1">Manaus</option>
-                  <option value="opcao2">São Paulo</option>
-                  <option value="opcao3">Ambos</option>
-              </select>
-          </div>
-            <!-- Fim da linha que contém o input governança responsável-->
-
-            <!--Linha que contém o input principal responsável-->
-            <div class="row4">
-                <div class="offset-4 col-8 mt-3">
-                    <p>Principal responsável</p>
-                    <input type="text" name="responsavel" id="responsavel" placeholder="Ex. Bianca Sakihira">
+              <!--Linha que contém o input nome-->
+              <div class="row3">
+                <div class="offset-4 col-8">
+                    <p>Data Final</p>
+                    <input type="date" id="final">
+                    <div class="ignore">
+                        <input type="checkbox" name="ignorafinal" id="ignorafinal" onclick="disable()">
+                        <p>Não tem</p>
                     </div>
+                </div>    
+              </div>
+            <!--Fim da linha que contém o input nome-->
             </div>
-            <div class="row5">
-                  <div class="offset-4 col-8 mt-4">
-                    <a href="agendar_projeto.html" class="butn">
-                      <p>Próxima Etapa</p>
-                    </a>
-                  </div>
+            <div class="next">
+                <a href="home.html">
+                    Concluir
+                </a>
+                <a href="novo_projeto.html">
+                    Etapa Anterior
+                </a>
             </div>
-              <!--Linha que contém o botão adicionar novo funcionário-->
           </div>
         </div>
-            <!--Fim do container que agrupa os elementos do formulário da página-->
       </div>
-    </div>
 </body>
 </html>
