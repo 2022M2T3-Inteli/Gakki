@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Gruppo Gakki">
+  <meta name="description" content="Home da ferramenta Yamaha Project Management">
+  <meta name="tags" content="PMS, Yamaha, Projetos">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/5df07a7fcc.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
+  <script src="/scripts/index.js" defer></script>
+  <script src="/scripts/graficos.js" defer></script>
+  <title>Criar um novo... | Yamaha Project Management</title>
+</head>
+<body>
+    <!--Menu vertical e horizontal-->
+    <div class="container">
+      <div class="navbar active">
+        <ul>
+          <li>
+            <a href="/home">
+              <span class="icon">
+                <img src="../Imagens/yamahalogo.svg">
+              </span>
+              <span class="title">
+                <img src="../Imagens/yamahaname.svg">
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="/novo">
+              <span class="icon">
+                <i class="fa-solid fa-circle-plus fa-lg"></i>
+              </span>
+              <span class="title">Adicionar Novo...</span>
+            </a>
+          </li>
+          <li>
+            <a href="/home">
+              <span class="icon">
+                <i class="fa-solid fa-house fa-lg"></i>
+              </span>
+              <span class="title">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="/graficos">
+              <span class="icon">
+                <i class="fa-solid fa-chart-line fa-lg"></i>
+              </span>
+              <span class="title">Estatisticas</span>
+            </a>
+          </li>
+          <li>
+            <a href="/tabelaFuncionarios">
+              <span class="icon">
+                <i class="fa-solid fa-table-columns fa-lg"></i>
+              </span>
+              <span class="title">Tabelas</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="main active">
+        <div class="topbar">
+          <div class="toggle">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+          <div class="search">
+            <label>
+              <input type="text" placeholder="Procure Aqui...">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </label>
+          </div>
+          <div class="user">
+            <img src="../Imagens/user_img.png" alt="">
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-project agendar"></div>
+          <div class="progress-full"></div>
+        </div>
+        <div class="contents">  
+          <!--Container que agrupa os elementos do formulário da página-->
+          <div class="container mt-5">
+            <div class="title">
+                <h1 id="agendar-projeto">Atribuir Funcionário</h1>
+                <p>Insira aqui quais funcionários irão trabalhar neste projeto.</p>
+            </div>
+          <!-- Modal -->
+          <div class="modal" id="todo_form">
+              <div class="header">
+                  <div class="titlemodal">Bianca Sakihira</div>
+              </div>
+              <div class="body">
+                  <h4>Participação no Projeto</h4>
+                  <div id="datas">
+                    <div class="datai">
+                      <p>Data de Início</p>
+                      <input type="date" id="inicial">
+                    </div>
+                    <div class="ignore">
+                      <input type="checkbox" name="ignorainicial" id="ignorainicial" onclick="disable()">
+                      <p>Não tem</p>
+                  </div>
+                  </div>
+                  <div id="datas">
+                    <div class="dataf">
+                      <p>Data de Fim</p>
+                      <input type="date" id="final">
+                    </div>
+                    <div class="ignore">
+                      <input type="checkbox" name="ignorafinal" id="ignorafinal" onclick="disable()">
+                      <p>Não tem</p>
+                  </div>
+                  </div>
+                  <h4>Horas Mensais neste Projeto</h4>
+                  <div id="meses">
+                    <div class="hrs">
+                      <p>Janeiro</p>
+                      <input type="number" name="hrjan" class="hr jan">
+                    </div>
+                    <div class="hrs">
+                      <p>Fevereiro</p>
+                      <input type="number" name="hrjan" class="hr fev">
+                    </div>
+                    <div class="hrs">
+                      <p>Março</p>
+                      <input type="number" name="hrjan" class="hr mar">
+                    </div>
+                    <div class="hrs">
+                      <p>Abril</p>
+                      <input type="number" name="hrjan" class="hr abr">
+                    </div>
+                    <div class="hrs">
+                      <p>Maio</p>
+                      <input type="number" name="hrjan" class="hr mai">
+                    </div>
+                    <div class="hrs">
+                      <p>Junho</p>
+                      <input type="number" name="hrjan" class="hr jun">
+                    </div>
+                    <div class="hrs">
+                      <p>Julho</p>
+                      <input type="number" name="hrjan" class="hr jul">
+                    </div>
+                    <div class="hrs">
+                      <p>Agosto</p>
+                      <input type="number" name="hrjan" class="hr ago">
+                    </div>
+                    <div class="hrs">
+                      <p>Setembro</p>
+                      <input type="number" name="hrjan" class="hr set">
+                    </div>
+                    <div class="hrs">
+                      <p>Outubro</p>
+                      <input type="number" name="hrjan" class="hr out">
+                    </div>
+                    <div class="hrs">
+                      <p>Novembro</p>
+                      <input type="number" name="hrjan" class="hr nov">
+                    </div>
+                    <div class="hrs">
+                      <p>Dezembro</p>
+                      <input type="number" name="hrjan" class="hr dez">
+                    </div>
+                  </div>
+                  <div class="save">
+                    <button class="btn modal-btn" data-target-modal="#todo_form">Salvar Alterações</button>
+                  </div>
+              </div>
+          </div>
+          <!-- Todo -->
+          <div class="todo-container">
+              <div class="status" id="no_status">
+                  <h1>Atribuidos</h1>
+                  <div class="todo" draggable="true">
+                  <button id="add_btn" data-target-modal="#todo_form" value="Bianca Sakihira" >Bianca Sakihira</button>
+                  <span class="close">&times;</span>
+                  </div>
+              </div>
+              <div class="status">
+                  <h1>Disponíveis</h1>
+              </div>
+          </div>
+  <div class="next">
+                <a href="/home">
+                    Concluir
+                </a>
+                <a href="/novoProjeto">
+                    Etapa Anterior
+                </a>
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- Overlay -->
+  <div id="overlay"></div>
+</body>
+</html>
