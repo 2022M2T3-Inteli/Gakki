@@ -1,5 +1,6 @@
 const express = require('express');
 const governanceController = require('../controllers/governance');
+const projectsController = require('../controllers/projects');
 
 const router = express.Router();
 

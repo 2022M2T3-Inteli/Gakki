@@ -5,7 +5,8 @@ const config = {
   options: {
     plugins: {
       legend: {
-        display: false,
+        display: true,
+        position: 'bottom'
       },
     },
   },
@@ -28,7 +29,7 @@ const config = {
       {
         label: "humanResources",
         data: [
-          5400, 6900, 7200, 7100, 5600, 6010, 5000, 6000, 5600, 5000, 5750,
+          1000, 6900, 7200, 7100, 5600, 6010, 5000, 6000, 5600, 5000, 5750,
           5590,
         ],
         backgroundColor: [" #247BA0"],
@@ -95,38 +96,6 @@ const configPie = {
 let myPieGrafico = new Chart(pieGrafico, configPie);
 // Gráfico pie
 
-let mixedGrafico = document.getElementById("mixedGrafico");
-const confige = {
-  type: "bar",
-  data: {
-    labels: [
-      "Janeiro",
-      "Feverreiro",
-      "Marco",
-      "Abril",
-      "Maio",
-      "Junho",
-      "Julho ",
-      "Agosto",
-      "Setembro",
-      "Outubro",
-      "Novembro",
-      "Dezembro",
-    ],
-    datasets: [
-      {
-        label: "Horas/Projetos",
-        data: [
-          5400, 6900, 7200, 7100, 5500, 6000, 5000, 6000, 4500, 5000, 7000,
-          6000,
-        ],
-        backgroundColor: [" #247BA0"],
-      },
-    ],
-  },
-};
-
-let myGrapho = new Chart(mixedGrafico, confige);
 
 let january = 0;
 let february = 0;
@@ -158,44 +127,39 @@ const labels = [
   "Dezembro",
 ];
 
-let dataProjects = [];
 function generateDataProjects() {
-  dataProjects = {
-    labels: labels,
+let mixedGrafico = document.getElementById("mixedGrafico"); 
+const confige = {
+  type: "bar",
+  data: {
+    labels: [
+      "Janeiro",
+      "Fevereiro",
+      "Março",
+      "Abril",
+      "Maio",
+      "Junho",
+      "Julho ",
+      "Agosto",
+      "Setembro",
+      "Outubro",
+      "Novembro",
+      "Dezembro",
+    ],
     datasets: [
       {
-        label: "Quantidade de projetos",
-        fill: true,
-        backgroundColor: " #247BA0",
-        borderColor: " #0A2463",
+        label: "Quantidade de projetos por mês",
         data: [
-          january,
-          february,
-          march,
-          april,
-          may,
-          june,
-          july,
-          august,
-          september,
-          october,
-          november,
-          december,
+          january, february, march, april, may, june, july, august, september, october, november, december,
         ],
+        backgroundColor: [" #247BA0"],
       },
     ],
-  };
-  generateChart();
+  },
+};
+  let myGrapho = new Chart(mixedGrafico, confige);
 }
 
-let myGraphy;
-function generateChart() {
-  myGraph = new Chart(lineGrafico, {
-    type: "line",
-    data: dataProjects,
-    options: {},
-  });
-}
 
 let ajax2 = new XMLHttpRequest();
 ajax2.open("GET", "/projects", true);
@@ -204,7 +168,6 @@ ajax2.onreadystatechange = () => {
   if (ajax2.status === 200 && ajax2.readyState === 4) {
     let response = JSON.parse(ajax2.responseText);
     for (let i = 0; i < response.length; i++) {
-      //let months = dataProjects.datasets[0].data;
       let month = parseInt(response[i].DataInicial.slice(5, 7));
       if (month === 1) {
         january++;
