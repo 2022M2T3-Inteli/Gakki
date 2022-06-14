@@ -96,7 +96,7 @@ const configPie = {
 let myPieGrafico = new Chart(pieGrafico, configPie);
 // Gráfico pie
 
-
+// variáveis que armazenam as quantidades de projetos em cada mês
 let january = 0;
 let february = 0;
 let march = 0;
@@ -110,23 +110,7 @@ let october = 0;
 let november = 0;
 let december = 0;
 
-let lineGrafico = document.getElementById("lineGrafico");
-
-const labels = [
-  "Janeiro",
-  "Fevereiro",
-  "Março",
-  "Abril",
-  "Maio",
-  "Junho",
-  "Julho",
-  "Agosto",
-  "Setembro",
-  "Outubro",
-  "Novembro",
-  "Dezembro",
-];
-
+// função que cria o gráfico quantidade de projetos por mês
 function generateDataProjects() {
 let mixedGrafico = document.getElementById("mixedGrafico"); 
 const confige = {
@@ -160,7 +144,7 @@ const confige = {
   let myGrapho = new Chart(mixedGrafico, confige);
 }
 
-
+// requisição ajax que retorna todos os projetos cadastrados no banco de dados
 let ajax2 = new XMLHttpRequest();
 ajax2.open("GET", "/projects", true);
 
@@ -169,6 +153,7 @@ ajax2.onreadystatechange = () => {
     let response = JSON.parse(ajax2.responseText);
     for (let i = 0; i < response.length; i++) {
       let month = parseInt(response[i].DataInicial.slice(5, 7));
+      // percorre cada projeto e incrementa a variável de acordo com o mês do projeto
       if (month === 1) {
         january++;
       }
@@ -216,8 +201,9 @@ ajax2.onreadystatechange = () => {
         december++
       }
     }
+    // chamando a função que gera o gráfico quantidade de projetos
     generateDataProjects();
   }
 };
-
+// envia a requisição ajax
 ajax2.send();

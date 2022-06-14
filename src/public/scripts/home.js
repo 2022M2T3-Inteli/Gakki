@@ -1,3 +1,4 @@
+// Requisição ajax que retorna todos os projetos cadastrados no banco de dados
 let ajax = new XMLHttpRequest();
 ajax.open('GET', '/projects', true);
 
@@ -19,19 +20,3 @@ ajax.onreadystatechange = () =>{
 }
 
 ajax.send();
-
-
-// let ajax2 = new XMLHttpRequest();
-// ajax2.open('GET', '/projects', true);
-
-// ajax2.onreadystatechange = () =>{
-//     if(ajax2.status === 200 && ajax2.readyState === 4){
-//         let response = JSON.parse(ajax2.responseText);
-//         for(let i = 0; i < response.length; i++){
-//           let month = parseInt(response[i].DataInicial.slice(5, 7));
-//           console.log(month);
-//         }
-//     }
-// }
-
-// ajax2.send();

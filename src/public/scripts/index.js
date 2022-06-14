@@ -1,7 +1,8 @@
 //PEDRO
-
+// se estiver na página que cadastra um novo funcionário
 if (document.title === 'Cadastrar Funcionário')
-{
+{   
+    // seleciona os elementos html
     let botaoSim =  document.getElementById('btnradio1');
     let botaoNao = document.getElementById('btnradio2');
 
@@ -12,21 +13,22 @@ if (document.title === 'Cadastrar Funcionário')
     let tipoPosicao2 = document.getElementById('tipo2');
 
     botaoSim.addEventListener('click', () =>{
+        // se o botão sim for selecionado
         if(botaoSim.checked){
-
+            // altera os atributos name para registro e governança
             tipoPosicao1.setAttribute('name', 'registro');
             tipoPosicao2.setAttribute('name', 'governanca');
 
+            // altera o HTML
             tipo1.innerHTML = 'Registro';
             tipo2.innerHTML = 'Governança';
 
-            console.log(tipoPosicao1);
-            console.log(tipoPosicao2);
-
+            // remove todas as opções do select
             for(const option of document.querySelectorAll('#tipo2 > option')){
                 option.remove();
             }
 
+            // cria uma requisição ajax e atualiza o select com as respostas da requisição
             let ajax2 = new XMLHttpRequest();
             ajax2.open('GET', '/governance', true);
             ajax2.onreadystatechange = () =>{
@@ -46,18 +48,22 @@ if (document.title === 'Cadastrar Funcionário')
     });
 
     botaoNao.addEventListener('click', () =>{
+        // se botão não for selecionado
         if(botaoNao.checked){
-
+            // altera os atributos name para empresa e duracão de contrato
             tipoPosicao1.setAttribute('name', 'empresa');
             tipoPosicao2.setAttribute('name', 'duracaocontrato');
 
+            // altera o conteúdo do HTML
             tipo1.innerHTML = 'Empresa';
             tipo2.innerHTML = 'Duração do contrato';
 
+            // remove todas as opções do select
             for(const option of document.querySelectorAll('#tipo2 > option')){
                 option.remove();
             }
 
+            // adiciona novas opções no select
             $('#tipo2').append(`
             <option value="Selecione">Selecione</option>
             <option value="1">1 ano</option>
