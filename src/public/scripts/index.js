@@ -131,6 +131,7 @@ todos.forEach(
 
 function dragStart(){
     draggableTodo = this; 
+    console.log(this);
     setTimeout(() => {
         this.style.display = 'none'; 
     }, 0);
@@ -196,5 +197,3 @@ window.onclick = (e) => {
         overlay.classList.remove("active");  
     }
 }
-
-
