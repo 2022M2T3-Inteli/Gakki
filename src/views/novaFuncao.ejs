@@ -16,6 +16,7 @@
     <script src="/scripts/index.js" defer></script>
     <script src="/scripts/graficos.js" defer></script>
     <script src="/scripts/nova_funcao.js" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Cadastrar Função | Yamaha Project Viewer</title>
 </head>
 <body>
@@ -106,7 +107,7 @@
               </div>
           <div class="row5">
             <div class="offset-4 col-8 mt-4">
-              <button id="createFunction" class="btn">Adicionar nova função</button>
+              <button id="createFunction" class="btn" onclick="addToast()">Adicionar nova função</button>
             </div>
           </div>
         </div>

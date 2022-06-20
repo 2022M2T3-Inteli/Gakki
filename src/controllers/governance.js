@@ -45,7 +45,7 @@ const createGovernance = (req, res) =>{
         if(err){
             throw err;
         }else{
-            res.render('novo');
+            res.render('novaGovernanca');
         }
     });
 

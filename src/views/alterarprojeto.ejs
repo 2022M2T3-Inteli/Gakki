@@ -15,8 +15,9 @@
   <script src="/scripts/index.js" defer></script>
   <script src="/scripts/graficos.js" defer></script>
   <script src="/scripts/novo_projeto.js" defer></script>
+  <script src="/scripts/alterar_projeto.js" defer></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <title>Criar um novo... | Yamaha Project Management</title>
+  <title>Alterar projeto... | Yamaha Project Management</title>
 </head>
 <body>
     <!--Menu vertical e horizontal-->
@@ -89,17 +90,24 @@
         <div class="contents">  
           <!--Container que agrupa os elementos do formulário da página-->
           <div class="container mt-5">
-            <form action="/projects" method="post">
+            <form action="/updateproject" method="post">
             <div class="title">
-              <h1 id="adicionar-projeto">Novo projeto</h1>
-              <p>Coloque as informações do projeto conforme o necessário.</p>
+              <h1 id="adicionar-projeto">Alterar informações do projeto</h1>
+              <p>Atualize as informações do projeto conforme o necessário.</p>
             </div>
             <div class="rows">
+
+              <div class="row1">
+                <div class="offset-4 col-8">
+                    <input type="hidden" name="id" id="id" value=<%= projeto.ProjetoID %>>
+                </div>    
+              </div>
+
               <!--Linha que contém o input nome-->
               <div class="row1">
                 <div class="offset-4 col-8">
                     <p>Nome</p>
-                    <input type="text" name="nome" id="nome" placeholder="Ex. Implantação de um sistema ERP; Desenvolvimento de um novo produto; etc." required>
+                    <input type="text" name="nome" id="nome" max="100" placeholder="Ex. Implantação de um sistema ERP; Desenvolvimento de um novo produto; etc." value=<%= projeto.NomeProjeto %> required>
                 </div>    
               </div>
             <!--Fim da linha que contém o input nome-->
@@ -108,7 +116,7 @@
             <div class="row2">
                 <div class="offset-4 col-8 mt-3">
                     <p>Descrição(opcional)</p> 
-                    <textarea name="descricao" id="descricao" cols="30" rows="5" placeholder="Ex. Sistema para manter controle das entregas do chão de fábrica"></textarea>
+                    <textarea name="descricao" id="descricao" cols="30" rows="5" placeholder="Ex. Sistema para manter controle das entregas do chão de fábrica"><%= projeto.Descricao %> </textarea>
                 </div>
             </div>
             <!--Fim da linha que contém o input descrição-->
@@ -118,7 +126,7 @@
               <label for="governanca">Governança</label>
               <br>
               <select name="governanca" id="governanca" required>
-                  <option value="selecione">Selecione</option>
+                  <option value="Selecione">Selecione</option>
               </select>
           </div>
             <!-- Fim da linha que contém o input governança responsável-->
@@ -127,14 +135,14 @@
             <div class="row4">
                 <div class="offset-4 col-8 mt-3">
                     <p>Principal responsável</p>
-                    <input type="text" name="responsavel" id="responsavel" placeholder="Ex. Bianca Sakihira" required>
+                    <input type="text" name="responsavel" id="responsavel" placeholder="Ex. Bianca Sakihira" required value=<%= projeto.PrincipalResponsavel %>>
                     </div>
             </div>
               <!--Linha que contém o input nome-->
               <div class="row1">
                 <div class="offset-4 col-8">
                     <p>Data Inicial</p>
-                    <input type="date" id="inicial" name="datainicial">
+                    <input type="date" id="inicial" name="datainicial" value=<%= projeto.DataInicial %> >
                     <div class="ignore">
                         <input type="checkbox" name="ignorainicial" id="ignorainicial" onclick="disable()">
                         <p>Não tem</p>
@@ -146,7 +154,7 @@
               <div class="row3">
                 <div class="offset-4 col-8">
                     <p>Data Final</p>
-                    <input type="date" id="final" name="datafinal">
+                    <input type="date" id="final" name="datafinal" value=<%= projeto.DataFinal %> >
                     <div class="ignore">
                         <input type="checkbox" name="ignorafinal" id="ignorafinal" onclick="disable()">
                         <p>Não tem</p>
@@ -156,7 +164,7 @@
               <!--Linha que contém o botão adicionar novo funcionário-->
           </div>
           <div class="next">
-            <button class="btn" onclick="addToast()">Adicionar novo projeto</button>
+            <button class="btn" onclick="addToastUpdate()">Atualizar projeto</button>
         </div>
         </div>
         </form>

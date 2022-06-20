@@ -1,3 +1,10 @@
+if(localStorage.getItem('message')){
+    if(localStorage.getItem('message') == 'created employee'){
+        toastShow();
+        localStorage.removeItem('message');
+    }
+};
+
 // requisição ajax que retorna todas as funções cadastradas no banco de dados
 let ajax = new XMLHttpRequest();
 ajax.open('GET', '/role', true);
@@ -32,4 +39,12 @@ funcajax.onreadystatechange = () =>{
 }
 funcajax.send();
 
+function addToast(){
+    localStorage.setItem('message', 'created employee')
+}
 
+function toastShow(){
+    swal("Funcionário(a) cadastrado com sucesso!", '', "success", {
+        dangerMode: true,
+    });
+}

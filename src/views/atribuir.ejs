@@ -93,6 +93,7 @@
                 <p>Insira aqui quais funcionários irão trabalhar neste projeto.</p>
             </div>
           <!-- Modal -->
+          <form action="/alocation" method="post">
           <div class="modal" id="todo_form">
               <div class="header">
                   <div class="titlemodal">Bianca Sakihira</div>
@@ -102,7 +103,7 @@
                   <div id="datas">
                     <div class="datai">
                       <p>Data de Início</p>
-                      <input type="date" id="inicial">
+                      <input type="date" id="inicial" name="inicial">
                     </div>
                     <div class="ignore">
                       <input type="checkbox" name="ignorainicial" id="ignorainicial" onclick="disable()">
@@ -112,7 +113,7 @@
                   <div id="datas">
                     <div class="dataf">
                       <p>Data de Fim</p>
-                      <input type="date" id="final">
+                      <input type="date" id="final" name="final">
                     </div>
                     <div class="ignore">
                       <input type="checkbox" name="ignorafinal" id="ignorafinal" onclick="disable()">
@@ -127,47 +128,47 @@
                     </div>
                     <div class="hrs">
                       <p>Fevereiro</p>
-                      <input type="number" name="hrjan" class="hr fev">
+                      <input type="number" name="hrfev" class="hr fev">
                     </div>
                     <div class="hrs">
                       <p>Março</p>
-                      <input type="number" name="hrjan" class="hr mar">
+                      <input type="number" name="hrmar" class="hr mar">
                     </div>
                     <div class="hrs">
                       <p>Abril</p>
-                      <input type="number" name="hrjan" class="hr abr">
+                      <input type="number" name="hrabr" class="hr abr">
                     </div>
                     <div class="hrs">
                       <p>Maio</p>
-                      <input type="number" name="hrjan" class="hr mai">
+                      <input type="number" name="hrmai" class="hr mai">
                     </div>
                     <div class="hrs">
                       <p>Junho</p>
-                      <input type="number" name="hrjan" class="hr jun">
+                      <input type="number" name="hrjun" class="hr jun">
                     </div>
                     <div class="hrs">
                       <p>Julho</p>
-                      <input type="number" name="hrjan" class="hr jul">
+                      <input type="number" name="hrjul" class="hr jul">
                     </div>
                     <div class="hrs">
                       <p>Agosto</p>
-                      <input type="number" name="hrjan" class="hr ago">
+                      <input type="number" name="hrago" class="hr ago">
                     </div>
                     <div class="hrs">
                       <p>Setembro</p>
-                      <input type="number" name="hrjan" class="hr set">
+                      <input type="number" name="hrset" class="hr set">
                     </div>
                     <div class="hrs">
                       <p>Outubro</p>
-                      <input type="number" name="hrjan" class="hr out">
+                      <input type="number" name="hrout" class="hr out">
                     </div>
                     <div class="hrs">
                       <p>Novembro</p>
-                      <input type="number" name="hrjan" class="hr nov">
+                      <input type="number" name="hrnov" class="hr nov">
                     </div>
                     <div class="hrs">
                       <p>Dezembro</p>
-                      <input type="number" name="hrjan" class="hr dez">
+                      <input type="number" name="hrdez" class="hr dez">
                     </div>
                   </div>
                   <div class="save">
@@ -175,6 +176,7 @@
                   </div>
               </div>
           </div>
+        </form>
           <!-- Todo -->
           <div class="todo-container">
               <div class="status" id="no_status">

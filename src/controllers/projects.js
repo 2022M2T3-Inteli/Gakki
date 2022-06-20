@@ -19,18 +19,6 @@ const getAllProjects = (req, res) =>{
     });
 }
 
-const getProjectById = (req, res) =>{
-    const { id } = req.params;
-    const sql = `SELECT * FROM Projeto WHERE ProjetoID = ${id}`;
-    db.get(sql, [], (err, row) =>{
-        if(err){
-            throw err;
-        } else {
-            res.json(row);
-        }
-    });
-}
-
 const createProject = (req, res) =>{
     const name = req.body.nome;
     const description = req.body.descricao;
@@ -46,31 +34,30 @@ const createProject = (req, res) =>{
         if(err){
             throw err;
         } else {
-            res.render('novo');
+            res.render('novoProjeto');
         }
     });
 }
 
-const updateProject = (req, res) =>{
-    const { id } = req.params;
+// const updateProject = (req, res) =>{
+//     const id = req.body.id;
+//     const name = req.body.nome;
+//     const description = req.body.descricao;
+//     const city = req.body.governanca;
+//     const principalResponsible = req.body.responsavel;
+//     const beginDate = req.body.datainicial;
+//     const finalDate = req.body.datafinal;
 
-    const name = req.body.Nome;
-    const description = req.body.Descricao;
-    const city = req.body.Cidade;
-    const principalResponsible = req.body.PrincipalResponsavel;
-    const beginDate = req.body.DataInicial;
-    const finalDate = req.body.DataFinal;
+//     const sql = `UPDATE Projeto SET NomeProjeto = ?, Descricao = ?, PrincipalResponsavel = ?, DataInicial = ?, DataFinal = ?, GovernancaID = ? WHERE ProjetoID = ${id}`;
 
-    const sql = `UPDATE Projeto SET Nome = ?, Descricao = ?, PrincipalResponsavel = ?, DataInicial = ?, DataFinal = ? WHERE ProjetoID = ${id}`;
-
-    db.run(sql, [name, description, city, principalResponsible, beginDate, finalDate], (err) =>{
-        if(err){
-            throw err;
-        } else {
-            res.send('Projeto atualizado com sucesso!');
-        }
-    });
-}
+//     db.run(sql, [name, description, principalResponsible, beginDate, finalDate, city], (err) =>{
+//         if(err){
+//             throw err;
+//         } else {
+//             res.render('home');
+//         }
+//     });
+// }
 
 const deleteProject = (req, res) =>{
     const { id } = req.params;
@@ -86,8 +73,9 @@ const deleteProject = (req, res) =>{
 
 module.exports = {
     getAllProjects,
-    getProjectById,
+    //getProjectById,
     createProject,
-    updateProject,
-    deleteProject
+    //updateProject,
+    deleteProject,
+    //alterProject
 }

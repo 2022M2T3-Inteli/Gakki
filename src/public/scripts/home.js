@@ -13,6 +13,7 @@ ajax.onreadystatechange = () =>{
                     <td>${response[i].NomeProjeto}</td>
                     <td>${response[i].PrincipalResponsavel}</td>
                     <td>${response[i].Estado}</td>
+                    <td><a href="/alterarprojeto?id=${response[i].ProjetoID}" class="update"><i class="fa-solid fa-file-pen"></i></a></td>
                 </tr>`
             );
         }

@@ -12,6 +12,7 @@ ajax.onreadystatechange = () =>{
                     <td>${response[i].NomeProjeto}</td>
                     <td>${response[i].PrincipalResponsavel}</td>
                     <td>${response[i].Estado}</td>
+                    <td><a href="/alterarprojeto?id=${response[i].ProjetoID}"><i class="fa-solid fa-file-pen"></i></a></td>
                 </tr>`
             );
         }
@@ -39,6 +40,7 @@ ajax2.onreadystatechange = () =>{
                 <td>
                   <span >13</span>
                 </td>
+                <td><a href="/alterarfuncionario?id=${response[i].FuncionarioID}"><i class="fa-solid fa-user-pen"></i></a></td>
              </tr>`
             );
         }

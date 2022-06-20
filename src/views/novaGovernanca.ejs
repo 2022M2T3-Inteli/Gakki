@@ -15,6 +15,7 @@
     <script src="/scripts/index.js" defer></script>
     <script src="/scripts/graficos.js" defer></script>
     <script src="/scripts/nova_governanca.js" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Cadastrar Funcionário</title>
 </head>
 <body>
@@ -109,7 +110,7 @@
               </div>
           <div class="row5">
             <div class="offset-4 col-8 mt-4">
-              <button id="createGov" class="btn">Adicionar nova governança</button>
+              <button id="createGov" class="btn" onclick="addToast()">Adicionar nova governança</button>
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const getAllRole = (req, res) =>{ 
-    const sql = 'SELECT * FROM Funcao ';
+    const sql = 'SELECT * FROM Funcao';
     db.all(sql, [], (err, rows) =>{
         if(err){
             throw err;
@@ -42,7 +42,7 @@ const createRole = (req, res) =>{
         if(err){
             throw err;
         } else {
-            res.render('novo');
+            res.render('novaFuncao');
         }
     });
 }

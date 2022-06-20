@@ -49,7 +49,7 @@ const createEmployee = (req, res) =>{
         if(err){
             throw err;
         } else {
-            res.render('novo');
+            res.render('novoFuncionario');
         }
     });
 }
@@ -72,7 +72,7 @@ const updateEmployee = (req, res) =>{
         if(err){
             throw err;
         } else {
-            res.send('Funcionário atualizado com sucesso!');
+            res.redirect('back');
         }
     });
 }

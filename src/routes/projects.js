@@ -5,11 +5,13 @@ const router = express.Router();
 
 router.get('/', projectsController.getAllProjects);
 
-router.get('/:id', projectsController.getProjectById);
+//router.get('/alterar', projectsController.alterProject);
+
+//router.get('/:id', projectsController.getProjectById);
 
 router.post('/', projectsController.createProject);
 
-router.patch('/:id', projectsController.updateProject);
+//router.post('/update', projectsController.updateProject);
 
 router.delete('/:id', projectsController.deleteProject);
 

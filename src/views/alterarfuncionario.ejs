@@ -14,8 +14,9 @@
     <script src="/scripts/index.js" defer></script>
     <script src="/scripts/graficos.js" defer></script>
     <script src="/scripts/novo_funcionario.js" defer></script>
+    <script src="/scripts/alterar_funcionario.js" defer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>Cadastrar Funcionário</title>
+    <title>Atualizar Funcionário</title>
 </head>
 <body>
   <!--Menu vertical e horizontal-->
@@ -86,21 +87,24 @@
         <div class="contents">
           <div class="container mt-5">
             <div class="title func">
-              <h1 class="adicionar-func">Adicionar novo funcionário</h1>
-              <p>Coloque as informações conforme o necessário.</p>
+              <h1 class="adicionar-func">Atualizar informações do funcionário</h1>
+              <p>Atualize as informações conforme o necessário.</p>
             </div>
-            <form action="/employees" method="post">
+            <form action="/updateemployee" method="post">
             <div class="rows">
               <div class="row1">
                 <div class="offset-3 col-3">
+                    <input type="hidden" name="id" id="id" value=<%= funcionario.FuncionarioID %>>
+                </div>
+                <div class="offset-3 col-3">
                     <label for="nome">Nome</label>
                     <br>
-                    <input type="text" name="nome" id="nome" placeholder="Ex. Beatriz, Frederico, Luiz Augusto, Luiz Carlos, Pedro, Sergio, Thainá" required>
+                    <input type="text" name="nome" id="nome" placeholder="Ex. Beatriz, Frederico, Luiz Augusto, Luiz Carlos, Pedro, Sergio, Thainá" value=<%= funcionario.Nome %>  required>
                 </div>
                 <div class="col-6">
                     <label for="sobrenome">Sobrenome</label>
                     <br>
-                    <input type="text" name="sobrenome" id="sobrenome" placeholder="Ex. Hirasaki, Schur, Ferreira, Silva, Lucas, Lima" required>
+                    <input type="text" name="sobrenome" id="sobrenome" placeholder="Ex. Hirasaki, Schur, Ferreira, Silva, Lucas, Lima" value=<%= funcionario.Sobrenome %> required>
                 </div>
               </div>
               <div class="row7">
@@ -119,7 +123,7 @@
             <div class="offset-3 col-3">
                 <label for="registro" id="labelTipo1">Registro</label>
                 <br>
-                <input type="text" name="registro" id="tipo1" placeholder="Ex. Y180522" required>
+                <input type="text" name="registro" id="tipo1" placeholder="Ex. Y180522" value=<%= funcionario.Registro %>  required>
             </div>
           </div>
           <div class="row1">
@@ -133,7 +137,7 @@
             <div class="offset-3 col-3">
                 <label for="jornada-trabalho">Horas Disponíveis para Projetos</label>
                 <br>
-                <input type="number" name="jornadaTrabalho" id="jornadaTrabalho" placeholder="Ex. 88" required>
+                <input type="number" name="jornadaTrabalho" id="jornadaTrabalho" placeholder="Ex. 88" value=<%= funcionario.HorasProjetos %>  required>
             </div>
           </div>
           <div class="row1">
@@ -145,7 +149,7 @@
           </div>
           <div class="row5">
             <div class="offset-4 col-8 mt-4">
-              <button id="createEmployee" type="submit" class="btn" onclick="addToast()">Adicionar funcionário</button>
+              <button id="createEmployee" type="submit" class="btn" onclick="addToastUpdate()">Atualizar funcionário</button>
             </div>
           </div>
         </div>

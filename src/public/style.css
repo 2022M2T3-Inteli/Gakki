@@ -1167,3 +1167,11 @@ input::-webkit-inner-spin-button {
     border-radius: 50px;
 }
 
+.fa-file-pen{
+    color: var(--secundaria);
+}
+
+.fa-user-pen{
+    color: var(--secundaria);
+}
+
