@@ -8,7 +8,7 @@
 
 ## Gakki 
 
-## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Beatriz Hirasaki</a>, <a href="https://www.linkedin.com/in/frederico-schur-6a3313237/">Frederico Schur</a>, <a href="https://www.linkedin.com/in/gutopompeo/">Luiz Augusto Ferreira</a>, <a href="[https://www.linkedin.com/in/luiz-carlos-da-silva-j%C3%BAnior-82a0a5216/](https://www.linkedin.com/in/luizcarlospsj20/)">Luiz Carlos da Silva</a>, <a href="https://www.linkedin.com/in/pedro-silva-14343022a/">Pedro Silva</a>, <a href="https://www.linkedin.com/in/sergiobalucas/">Sergio Lucas</a>, <a href="https://www.linkedin.com/in/thain%C3%A1-lima-169177232/">Thainá Lima</a>. 
+## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Beatriz Hirasaki</a>, <a href="https://www.linkedin.com/in/frederico-schur-6a3313237/">Frederico Schur</a>, <a href="https://www.linkedin.com/in/gutopompeo/">Luiz Augusto Ferreira</a>, <a href="https://www.linkedin.com/in/luiz-carlos-da-silva-j%C3%BAnior-82a0a5216/">Luiz Carlos da Silva</a>, <a href="https://www.linkedin.com/in/pedro-silva-14343022a/">Pedro Silva</a>, <a href="https://www.linkedin.com/in/sergiobalucas/">Sergio Lucas</a>, <a href="https://www.linkedin.com/in/thain%C3%A1-lima-169177232/">Thainá Lima</a>. 
 
 ## Descrição
 
