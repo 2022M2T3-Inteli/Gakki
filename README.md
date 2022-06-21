@@ -26,7 +26,7 @@ Então para atingirmos o objetivo da Yamaha, começamos por introduzir uma tela 
 
 <br><br>
   A página inicial é o dashboard, área voltada completamente para a visualização dos gráficos de saturação e quantidade de projetos, além de oferecer uma visão de todos os projetos através do formato de lista. Já na próxima página de nossa aplicação foram criadas abas como: criar funcionário, criar novo projeto, criar governança e criar nova função. Tudo isso, gerando informações que irão para o bancos de dados para que possa ser usada na aplicação. Além das duas abas principais, que são o dashboard e a página de adicionar dados, também implementamos duas páginas suplementares, onde uma delas mostra de maneira mais detalhada o gráfico de saturação e as informações relacionadas a ele e a outra mostra detalhes dos projetos da Yamaha.
-  O objetivo principal deste projeto é, alêm da administração de projetos e funcionarios, o gráfico de saturação, que caractetiza o workload dos funcionarios.  O gráfico mostra a capacidade total da empresa em horas, fazendo uma mêdia entre os funcionários CLTS e tercerizados, gerando uma linha da demanda ideal da empresa.
+  <br>O objetivo principal deste projeto é, alêm da administração de projetos e funcionarios, o gráfico de saturação, que caractetiza o workload dos funcionarios.  O gráfico mostra a capacidade total da empresa em horas, fazendo uma mêdia entre os funcionários CLTS e tercerizados, gerando uma linha da demanda ideal da empresa.
 <br><br>
 
 ## 🛠 Estrutura de pastas
