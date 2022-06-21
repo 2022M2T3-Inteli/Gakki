@@ -8,11 +8,10 @@
 
 ## Gakki 
 
-## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Beatriz Hirasaki</a>, <a href="https://www.linkedin.com/in/frederico-schur-6a3313237/">Frederico Schur</a>, <a href="https://www.linkedin.com/in/gutopompeo/">Luiz Augusto Ferreira</a>, <a href="[https://www.linkedin.com/in/luiz-carlos-da-silva-j%C3%BAnior-82a0a5216/](https://www.linkedin.com/in/luizcarlospsj20/)">Luiz Carlos da Silva</a>, <a href="https://www.linkedin.com/in/pedro-silva-14343022a/">Pedro Silva</a>, <a href="https://www.linkedin.com/in/sergiobalucas/">Sergio Lucas</a>, <a href="https://www.linkedin.com/in/thain%C3%A1-lima-169177232/">Thainá Lima</a>. 
+## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Beatriz Hirasaki</a>, <a href="https://www.linkedin.com/in/frederico-schur-6a3313237/">Frederico Schur</a>, <a href="https://www.linkedin.com/in/gutopompeo/">Luiz Augusto Ferreira</a>, <a href="https://www.linkedin.com/in/luiz-carlos-da-silva-j%C3%BAnior-82a0a5216/">Luiz Carlos da Silva</a>, <a href="https://www.linkedin.com/in/pedro-silva-14343022a/">Pedro Silva</a>, <a href="https://www.linkedin.com/in/sergiobalucas/">Sergio Lucas</a>, <a href="https://www.linkedin.com/in/thain%C3%A1-lima-169177232/">Thainá Lima</a>. 
 
 ## Descrição
 
-📜 Descrição curta sobre o que seu projeto faz.
   Para este módulo tivemos como parceiro de projeto a Yamaha, uma empresa que detém como principal foco a produção de motocicletas. Nosso parceiro vem buscando um método de gerenciar melhor sua equipe de TI, pois hoje não dispõem de um sistema que mostre com clareza a alocação e disponibilidade de seus funcionários nos seus projetos, sendo assim, foi proposto criar um sistema de capacity humano que demonstre em um dashboard as informações tanto do projeto quanto da equipe de TI. O Principal objetivo do projeto é mostrar através de um gráfico de saturação, as informações citadas anteriormente, alem das alocacoes de cada funcionario.
 <br><br>
 Meu projeto é um exemplo de como utilizar o github.
@@ -25,7 +24,7 @@ Meu projeto é um exemplo de como utilizar o github.
 
 💡 De um a dois parágrafos sobre o que é seu projeto e o que ele faz.
 <br><br>
-Então para atingirmos o objetivo da Yamaha, começamos por introduzir uma tela de login para os administradores já cadastrados no sistema, a tela de login consiste em um design unico que possui o logo da Yamaha e suas caracteristicas.
+Então para atingirmos o objetivo da Yamaha, começamos por introduzir uma tela de login para os administradores já cadastrados no sistema. A tela de login consiste em um design único autoral.
 
 
 <br><br>
