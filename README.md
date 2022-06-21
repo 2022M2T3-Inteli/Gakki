@@ -91,7 +91,7 @@ Então para atingirmos o objetivo da Yamaha, começamos por introduzir uma tela 
 
 <b>documentos</b>: Documentação do projeto<b>
 
-<b>src</b>: Código
+<b>src</b>: Código<b>
 
 ## 🛠 Instalação
 
