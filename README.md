@@ -89,9 +89,9 @@ Então para atingirmos o objetivo da Yamaha, começamos por introduzir uma tela 
 |readme.md<br>
 
 
-<b>documentos</b>: Aqui estarão todos os documentos do projeto, mas principalmente o <b>GDD (Game Design Document)/Documentação do Sistema</b>
+<b>documentos</b>: Documentação do projeto<b>
 
-<b>src</b>: Nesta pasta irá todo o código fonte do jogo/sistema, pronto para para ser baixado e modificado.
+<b>src</b>: Código
 
 ## 🛠 Instalação
 
