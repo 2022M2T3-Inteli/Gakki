@@ -31,16 +31,60 @@ Então para atingirmos o objetivo da Yamaha, começamos por introduzir uma tela 
 
 ## 🛠 Estrutura de pastas
 
--Raiz<br>
+-documentos<br>
 |<br>
-|-->documentos<br>
-  &emsp;|-->antigos<br>
-  &emsp;|GDD.docx ou Documentação.docx<br>
-|-->executáveis<br>
-  &emsp;|-->windows<br>
-  &emsp;|-->android<br>
-  &emsp;|-->HTML<br>
-|-->imagens<br>
+|-->antigos<br>
+  &emsp;|-->pasta para guardar documentos antigos<br>
+  &emsp;|-->Modelo WAD<br>
+-src<br>
+|<br>
+|-->controllers<br>
+  &emsp;|-->employees<br>
+  &emsp;|-->governance<br>
+  &emsp;|-->projects<br>
+  &emsp;|-->role<br>
+|-->database<br>
+   &emsp;|-->yamaha<br>
+   &emsp;|-->yamaha.sqbpro<br>
+|-->public<br>
+   |-->imagens<br>
+      &emsp;|-->.DS_Store<br>
+      &emsp;|-->arte_login<br>
+      &emsp;|-->logo_yamaha<br>
+      &emsp;|-->user_img<br>
+      &emsp;|-->yamahalogo<br>
+      &emsp;|-->yamahaname<br>
+   |-->script<br>
+      &emsp;|-->garficos<br>
+      &emsp;|-->home<br>
+      &emsp;|-->index<br>
+      &emsp;|-->nova_funcao<br>
+      &emsp;|-->nova_governanca<br>
+      &emsp;|-->novo_funcionario<br>
+      &emsp;|-->novo_projeto<br>
+      &emsp;|-->tabela_funcionarios<br>
+   &emsp;|-->stye<br>
+|-->routes<br>
+  &emsp;|-->employees<br>
+  &emsp;|-->governance<br>
+  &emsp;|-->projects<br>
+  &emsp;|-->role<br>
+|-->views<br>
+  &emsp;|-->atribuir.ejs<br>
+  &emsp;|-->graficos.ejs<br>
+  &emsp;|-->home.ejs<br>
+  &emsp;|-->index.ejs<br>
+  &emsp;|-->novaFuncao.ejs<br>
+  &emsp;|-->novaGovernanca.ejs<br>
+  &emsp;|-->novo.ejs<br>
+  &emsp;|-->novoFuncionario.ejs<br>
+  &emsp;|-->novoProjeto.ejs<br>
+  &emsp;|-->tabelaFuncionario.ejs<br>
+&emsp;|-->.gitignore<br>
+&emsp;|-->index<br>
+&emsp;|-->package<br>
+&emsp;|-->package-lock<br>
+
 |-->src<br>
 |readme.md<br>
 
