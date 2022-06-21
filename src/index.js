@@ -100,6 +100,32 @@ app.post('/updateemployee', (req, res) =>{
     });
 });
 
+app.post('/deleteproject', (req, res) =>{
+    const db = new sqlite3.Database(dbPath);
+    const id = req.body.id;
+    const sql = `DELETE FROM Projeto WHERE ProjetoID = ${id}`;
+    db.run(sql, [], (err) =>{
+        if(err){
+            throw err;
+        } else {
+            res.send();
+        }
+    });
+});
+
+app.post('/deleteemployee', (req, res) =>{
+    const db = new sqlite3.Database(dbPath);
+    const id = req.body.id;
+    const sql = `DELETE FROM Funcionario WHERE FuncionarioID = ${id}`;
+    db.run(sql, [], (err) =>{
+        if(err){
+            throw err;
+        } else {
+            res.send();
+        }
+    });
+});
+
 app.get('/atribuir', (req, res) =>{
     res.render('atribuir');
 });

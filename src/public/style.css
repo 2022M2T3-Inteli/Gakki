@@ -1175,3 +1175,11 @@ input::-webkit-inner-spin-button {
     color: var(--secundaria);
 }
 
+.fa-trash-can{
+    color: var(--secundaria);
+}
+
+.fa-user-xmark{
+    color: var(--secundaria);
+}
+
