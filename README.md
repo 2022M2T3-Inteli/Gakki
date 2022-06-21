@@ -12,17 +12,14 @@
 
 ## Descrição
 
-  Para este módulo tivemos como parceiro de projeto a Yamaha, uma empresa que detém como principal foco a produção de motocicletas. Nosso parceiro vem buscando um método de gerenciar melhor sua equipe de TI, pois hoje não dispõem de um sistema que mostre com clareza a alocação e disponibilidade de seus funcionários nos seus projetos, sendo assim, foi proposto criar um sistema de capacity humano que demonstre em um dashboard as informações tanto do projeto quanto da equipe de TI. O Principal objetivo do projeto é mostrar através de um gráfico de saturação, as informações citadas anteriormente, alem das alocacoes de cada funcionario.
+  Para este módulo tivemos como parceiro de projeto a Yamaha, uma empresa que detém como principal foco a produção de motocicletas. Nosso parceiro vem buscando um método de gerenciar melhor sua equipe de TI, pois hoje não dispõem de um sistema que mostre com clareza a alocação e disponibilidade de seus funcionários nos seus projetos, sendo assim, foi proposto criar um sistema de capacity humano que demonstre em um dashboard as informações tanto do projeto quanto da equipe de TI. O Principal objetivo do projeto é mostrar através de um gráfico de saturação, as informações citadas anteriormente, alem das alocações de cada funcionário.
 <br><br>
-Meu projeto é um exemplo de como utilizar o github.
 <br><br>
 <p align="center">
-<img src="https://pix4free.org/assets/library/2021-01-20/originals/game.jpg" alt="NOME DO JOGO" border="0">
-  Game by <a href="http://www.nyphotographic.com/">Nick Youngson</a> <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href="http://pix4free.org/">Pix4free</a>
+
 </p>
 
 
-💡 De um a dois parágrafos sobre o que é seu projeto e o que ele faz.
 <br><br>
 Então para atingirmos o objetivo da Yamaha, começamos por introduzir uma tela de login para os administradores já cadastrados no sistema. A tela de login consiste em um design único autoral.
 
