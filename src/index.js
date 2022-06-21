@@ -166,6 +166,6 @@ app.get('/tabelaFuncionarios', (req, res) =>{
     res.render('tabelaFuncionarios');
 });
 
-app.listen(PORT, () =>{
+app.listen(process.env.PORT || PORT, () =>{
     console.log(`Server is running on port ${PORT}`);
 });
