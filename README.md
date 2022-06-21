@@ -88,17 +88,8 @@ Então para atingirmos o objetivo da Yamaha, começamos por introduzir uma tela 
 |-->src<br>
 |readme.md<br>
 
-A pasta raiz contem dois arquivos que devem ser alterados:
 
-<b>README.MD</b>: Arquivo que serve como guia e explicação geral sobre seu projeto. O mesmo que você está lendo agora.
-
-Há também 4 pastas que seguem da seguinte forma:
-
-<b>documentos</b>: Aqui estarão todos os documentos do projeto, mas principalmente o <b>GDD (Game Design Document)/Documentação do Sistema</b>. Há uma pasta <b>antigos</b> onde estarão todas as versões antigas da documentação.
-
-<b>executáveis</b>: Aqui estarão todos os executáveis do jogo, prontos para rodar. Há no mínimo 3 pastas, uma para binários <b>Windows</b>, uma para binários <b>android</b> e uma para a <b>Web/HTML</b>
-
-<b>imagens</b>: Algumas imagens do jogo/sistema e logos prontos para serem utilizados e visualizados.
+<b>documentos</b>: Aqui estarão todos os documentos do projeto, mas principalmente o <b>GDD (Game Design Document)/Documentação do Sistema</b>
 
 <b>src</b>: Nesta pasta irá todo o código fonte do jogo/sistema, pronto para para ser baixado e modificado.
 
