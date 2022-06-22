@@ -948,6 +948,7 @@ thead
 
 .status
 {
+    border-radius: 0 0 15px 15px;
     width: 40%;
     background-color: #f3f3f3;
     position: relative;
@@ -962,6 +963,7 @@ thead
 .status h1
 {
     position: absolute;
+    border-radius: 15px 15px 0 0;
     top: 0;
     left: 0;
     background-color: var(--secundaria);
@@ -1183,3 +1185,21 @@ input::-webkit-inner-spin-button {
     color: var(--secundaria);
 }
 
+.projectlist.update {
+    display: block !important;
+    min-height: 0 !important;
+    pointer-events: all;
+}
+
+.projectlist.update table {
+    border-collapse: unset !important;
+    margin-top: 0 !important;
+}
+
+.projectlist.update thead {
+    pointer-events: all !important;
+}
+
+.projectlist.update #descricao {
+    width: 450%;
+}

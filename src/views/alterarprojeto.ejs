@@ -16,6 +16,7 @@
   <script src="/scripts/graficos.js" defer></script>
   <script src="/scripts/novo_projeto.js" defer></script>
   <script src="/scripts/alterar_projeto.js" defer></script>
+  <script src="/scripts/atribuir.js" defer></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <title>Alterar projeto... | Yamaha Project Management</title>
 </head>
@@ -95,74 +96,166 @@
               <h1 id="adicionar-projeto">Alterar informações do projeto</h1>
               <p>Atualize as informações do projeto conforme o necessário.</p>
             </div>
-            <div class="rows">
-
-              <div class="row1">
-                <div class="offset-4 col-8">
-                    <input type="hidden" name="id" id="id" value=<%= projeto.ProjetoID %>>
-                </div>    
-              </div>
-
-              <!--Linha que contém o input nome-->
-              <div class="row1">
-                <div class="offset-4 col-8">
-                    <p>Nome</p>
-                    <input type="text" name="nome" id="nome" max="100" placeholder="Ex. Implantação de um sistema ERP; Desenvolvimento de um novo produto; etc." value=<%= projeto.NomeProjeto %> required>
-                </div>    
-              </div>
-            <!--Fim da linha que contém o input nome-->
-
-            <!--Linha que contém o input descrição-->
-            <div class="row2">
-                <div class="offset-4 col-8 mt-3">
-                    <p>Descrição(opcional)</p> 
-                    <textarea name="descricao" id="descricao" cols="30" rows="5" placeholder="Ex. Sistema para manter controle das entregas do chão de fábrica"><%= projeto.Descricao %> </textarea>
+            <div class="details">
+              <div class="projectlist update">
+                <div class="cardHeader">
+                  <h2>
+                    Informações do Projeto
+                  </h2>
                 </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Código</th>
+                      <th>Nome</th>
+                      <th>Principal responsável</th>
+                      <th>Governança</th>
+                      <th>Data Inicial</th>
+                      <th>Data Final</th>
+                    </tr>
+                    <tr>
+                      <td> 
+                        <input id="id" type="text" value=<%= projeto.ProjetoID %> disabled> 
+                      </td>
+                      <td>
+                        <input type="text" name="nome" id="nome" max="100" placeholder="Ex. Implantação de um sistema ERP; Desenvolvimento de um novo produto; etc." value=<%= projeto.NomeProjeto %> required> 
+                      </td>
+                      <td>
+                        <input type="text" name="responsavel" id="responsavel" placeholder="Ex. Bianca Sakihira" required value=<%= projeto.PrincipalResponsavel %>>
+                      </td>
+                      <td>
+                        <select name="governanca" id="governanca" required>
+                          <option value="Selecione">Selecione</option>
+                        </select>
+                      </td>
+                      <td>
+                        <input type="date" id="inicial" name="datainicial" value=<%= projeto.DataInicial %> >
+                      </td>
+                      <td>
+                        <input type="date" id="final" name="datafinal" value=<%= projeto.DataFinal %> >
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Descrição</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <textarea name="descricao" id="descricao" cols="30" rows="5" placeholder="Ex. Sistema para manter controle das entregas do chão de fábrica"><%= projeto.Descricao %> </textarea>
+                      </td>
+                    </tr>
+                  </thead>
+                  <tbody id="tableProjects">
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <!--Fim da linha que contém o input descrição-->
-
-            <!--Linha que contém o input governança responsável-->
-            <div class="row1">
-              <label for="governanca">Governança</label>
-              <br>
-              <select name="governanca" id="governanca" required>
-                  <option value="Selecione">Selecione</option>
-              </select>
-          </div>
-            <!-- Fim da linha que contém o input governança responsável-->
-
-            <!--Linha que contém o input principal responsável-->
-            <div class="row4">
-                <div class="offset-4 col-8 mt-3">
-                    <p>Principal responsável</p>
-                    <input type="text" name="responsavel" id="responsavel" placeholder="Ex. Bianca Sakihira" required value=<%= projeto.PrincipalResponsavel %>>
-                    </div>
-            </div>
-              <!--Linha que contém o input nome-->
-              <div class="row1">
-                <div class="offset-4 col-8">
-                    <p>Data Inicial</p>
-                    <input type="date" id="inicial" name="datainicial" value=<%= projeto.DataInicial %> >
-                    <div class="ignore">
+            <div class="details">
+              <div class="projectlist update">
+                <div class="cardHeader">
+                  <h2>
+                    Atribuir Funcionário
+                  </h2>
+                </div>
+            <!-- Modal -->
+            <form action="/alocation" method="post">
+            <div class="modal" id="todo_form">
+                <div class="header">
+                    <div class="titlemodal">Bianca Sakihira</div>
+                </div>
+                <div class="body">
+                    <h4>Participação no Projeto</h4>
+                    <div id="datas">
+                      <div class="datai">
+                        <p>Data de Início</p>
+                        <input type="date" id="inicial" name="inicial">
+                      </div>
+                      <div class="ignore">
                         <input type="checkbox" name="ignorainicial" id="ignorainicial" onclick="disable()">
                         <p>Não tem</p>
                     </div>
-                </div>    
-              </div>
-            <!--Fim da linha que contém o input nome-->
-              <!--Linha que contém o input nome-->
-              <div class="row3">
-                <div class="offset-4 col-8">
-                    <p>Data Final</p>
-                    <input type="date" id="final" name="datafinal" value=<%= projeto.DataFinal %> >
-                    <div class="ignore">
+                    </div>
+                    <div id="datas">
+                      <div class="dataf">
+                        <p>Data de Fim</p>
+                        <input type="date" id="final" name="final">
+                      </div>
+                      <div class="ignore">
                         <input type="checkbox" name="ignorafinal" id="ignorafinal" onclick="disable()">
                         <p>Não tem</p>
                     </div>
-                </div>    
+                    </div>
+                    <h4>Horas Mensais neste Projeto</h4>
+                    <div id="meses">
+                      <div class="hrs">
+                        <p>Janeiro</p>
+                        <input type="number" name="hrjan" class="hr jan">
+                      </div>
+                      <div class="hrs">
+                        <p>Fevereiro</p>
+                        <input type="number" name="hrfev" class="hr fev">
+                      </div>
+                      <div class="hrs">
+                        <p>Março</p>
+                        <input type="number" name="hrmar" class="hr mar">
+                      </div>
+                      <div class="hrs">
+                        <p>Abril</p>
+                        <input type="number" name="hrabr" class="hr abr">
+                      </div>
+                      <div class="hrs">
+                        <p>Maio</p>
+                        <input type="number" name="hrmai" class="hr mai">
+                      </div>
+                      <div class="hrs">
+                        <p>Junho</p>
+                        <input type="number" name="hrjun" class="hr jun">
+                      </div>
+                      <div class="hrs">
+                        <p>Julho</p>
+                        <input type="number" name="hrjul" class="hr jul">
+                      </div>
+                      <div class="hrs">
+                        <p>Agosto</p>
+                        <input type="number" name="hrago" class="hr ago">
+                      </div>
+                      <div class="hrs">
+                        <p>Setembro</p>
+                        <input type="number" name="hrset" class="hr set">
+                      </div>
+                      <div class="hrs">
+                        <p>Outubro</p>
+                        <input type="number" name="hrout" class="hr out">
+                      </div>
+                      <div class="hrs">
+                        <p>Novembro</p>
+                        <input type="number" name="hrnov" class="hr nov">
+                      </div>
+                      <div class="hrs">
+                        <p>Dezembro</p>
+                        <input type="number" name="hrdez" class="hr dez">
+                      </div>
+                    </div>
+                    <div class="save">
+                      <button class="btn modal-btn" data-target-modal="#todo_form">Salvar Alterações</button>
+                    </div>
+                </div>
+            </div>
+          </form>
+            <!-- Todo -->
+            <div class="todo-container">
+                <div class="status" id="no_status">
+                    <h1>Atribuidos</h1>
+                </div>
+                <div class="status" id="disponiveis">
+                    <h1>Disponíveis</h1>
+                    <div class="todo" draggable="true">
+                      <button id="add_btn" data-target-modal="#todo_form" value="Bianca Sakihira" >Bianca Sakihira</button>
+                      <span class="close">&times;</span>
+                    </div>
+                </div>
+            </div>
               </div>
-              <!--Linha que contém o botão adicionar novo funcionário-->
-          </div>
+            </div>
           <div class="next">
             <button class="btn" onclick="addToastUpdate()">Atualizar projeto</button>
         </div>
@@ -171,5 +264,6 @@
             <!--Fim do container que agrupa os elementos do formulário da página-->
       </div>
     </div>
+    <div id="overlay"></div>
 </body>
 </html>
