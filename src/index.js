@@ -31,7 +31,7 @@ app.use('/alocation', alocationRoutes);
 app.get('/alterarprojeto', (req, res) =>{
     const id = req.query["id"];
     const db = new sqlite3.Database(dbPath);
-    const sql = `SELECT * FROM Projeto INNER JOIN Governanca ON Governanca.GovernancaID = Projeto.GovernancaID WHERE ProjetoID = ${id} `;
+    const sql = `SELECT * FROM Projeto INNER JOIN Governanca ON Governanca.GovernancaID = Projeto.GovernancaID WHERE ProjetoID = ${id}`;
     db.get(sql, [], (err, row) =>{
         if(err){
             throw err;

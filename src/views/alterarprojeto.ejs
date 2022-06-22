@@ -12,11 +12,9 @@
   <script src="https://kit.fontawesome.com/5df07a7fcc.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
-  <script src="/scripts/index.js" defer></script>
   <script src="/scripts/graficos.js" defer></script>
   <script src="/scripts/novo_projeto.js" defer></script>
   <script src="/scripts/alterar_projeto.js" defer></script>
-  <script src="/scripts/atribuir.js" defer></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <title>Alterar projeto... | Yamaha Project Management</title>
 </head>
@@ -115,7 +113,7 @@
                     </tr>
                     <tr>
                       <td> 
-                        <input id="id" type="text" value=<%= projeto.ProjetoID %> disabled> 
+                        <input id="id" name="id" type="hidden" value=<%= projeto.ProjetoID %>> 
                       </td>
                       <td>
                         <input type="text" name="nome" id="nome" max="100" placeholder="Ex. Implantação de um sistema ERP; Desenvolvimento de um novo produto; etc." value=<%= projeto.NomeProjeto %> required> 
@@ -125,7 +123,7 @@
                       </td>
                       <td>
                         <select name="governanca" id="governanca" required>
-                          <option value="Selecione">Selecione</option>
+                          <option value=<%= projeto.GovernancaID %> ><%= projeto.Estado %> </option>
                         </select>
                       </td>
                       <td>
@@ -147,6 +145,8 @@
                   <tbody id="tableProjects">
                   </tbody>
                 </table>
+                <button class="btn" onclick="addToastUpdate()">Atualizar projeto</button>
+              </form>
               </div>
             </div>
             <div class="details">
@@ -157,96 +157,12 @@
                   </h2>
                 </div>
             <!-- Modal -->
-            <form action="/alocation" method="post">
-            <div class="modal" id="todo_form">
-                <div class="header">
-                    <div class="titlemodal">Bianca Sakihira</div>
-                </div>
-                <div class="body">
-                    <h4>Participação no Projeto</h4>
-                    <div id="datas">
-                      <div class="datai">
-                        <p>Data de Início</p>
-                        <input type="date" id="inicial" name="inicial">
-                      </div>
-                      <div class="ignore">
-                        <input type="checkbox" name="ignorainicial" id="ignorainicial" onclick="disable()">
-                        <p>Não tem</p>
-                    </div>
-                    </div>
-                    <div id="datas">
-                      <div class="dataf">
-                        <p>Data de Fim</p>
-                        <input type="date" id="final" name="final">
-                      </div>
-                      <div class="ignore">
-                        <input type="checkbox" name="ignorafinal" id="ignorafinal" onclick="disable()">
-                        <p>Não tem</p>
-                    </div>
-                    </div>
-                    <h4>Horas Mensais neste Projeto</h4>
-                    <div id="meses">
-                      <div class="hrs">
-                        <p>Janeiro</p>
-                        <input type="number" name="hrjan" class="hr jan">
-                      </div>
-                      <div class="hrs">
-                        <p>Fevereiro</p>
-                        <input type="number" name="hrfev" class="hr fev">
-                      </div>
-                      <div class="hrs">
-                        <p>Março</p>
-                        <input type="number" name="hrmar" class="hr mar">
-                      </div>
-                      <div class="hrs">
-                        <p>Abril</p>
-                        <input type="number" name="hrabr" class="hr abr">
-                      </div>
-                      <div class="hrs">
-                        <p>Maio</p>
-                        <input type="number" name="hrmai" class="hr mai">
-                      </div>
-                      <div class="hrs">
-                        <p>Junho</p>
-                        <input type="number" name="hrjun" class="hr jun">
-                      </div>
-                      <div class="hrs">
-                        <p>Julho</p>
-                        <input type="number" name="hrjul" class="hr jul">
-                      </div>
-                      <div class="hrs">
-                        <p>Agosto</p>
-                        <input type="number" name="hrago" class="hr ago">
-                      </div>
-                      <div class="hrs">
-                        <p>Setembro</p>
-                        <input type="number" name="hrset" class="hr set">
-                      </div>
-                      <div class="hrs">
-                        <p>Outubro</p>
-                        <input type="number" name="hrout" class="hr out">
-                      </div>
-                      <div class="hrs">
-                        <p>Novembro</p>
-                        <input type="number" name="hrnov" class="hr nov">
-                      </div>
-                      <div class="hrs">
-                        <p>Dezembro</p>
-                        <input type="number" name="hrdez" class="hr dez">
-                      </div>
-                    </div>
-                    <div class="save">
-                      <button class="btn modal-btn" data-target-modal="#todo_form">Salvar Alterações</button>
-                    </div>
-                </div>
-            </div>
-          </form>
             <!-- Todo -->
             <div class="todo-container">
                 <div class="status" id="no_status">
                     <h1>Atribuidos</h1>
                 </div>
-                <div class="status" id="disponiveis">
+                <div class="status" id="funcdisponiveis">
                     <h1>Disponíveis</h1>
                     <div class="todo" draggable="true">
                       <button id="add_btn" data-target-modal="#todo_form" value="Bianca Sakihira" >Bianca Sakihira</button>
@@ -257,13 +173,96 @@
               </div>
             </div>
           <div class="next">
-            <button class="btn" onclick="addToastUpdate()">Atualizar projeto</button>
         </div>
         </div>
-        </form>
             <!--Fim do container que agrupa os elementos do formulário da página-->
       </div>
     </div>
     <div id="overlay"></div>
+
+    <form>
+      <div class="modal" id="todo_form">
+          <div class="header">
+              <div class="titlemodal">Bianca Sakihira</div>
+          </div>
+          <div class="body">
+              <h4>Participação no Projeto</h4>
+              <div id="datas">
+                <div class="datai">
+                  <p>Data de Início</p>
+                  <input type="date" id="inicial" name="inicial">
+                </div>
+                <div class="ignore">
+                  <input type="checkbox" name="ignorainicial" id="ignorainicial" onclick="disable()">
+                  <p>Não tem</p>
+              </div>
+              </div>
+              <div id="datas">
+                <div class="dataf">
+                  <p>Data de Fim</p>
+                  <input type="date" id="final" name="final">
+                </div>
+                <div class="ignore">
+                  <input type="checkbox" name="ignorafinal" id="ignorafinal" onclick="disable()">
+                  <p>Não tem</p>
+              </div>
+              </div>
+              <h4>Horas Mensais neste Projeto</h4>
+              <div id="meses">
+                <div class="hrs">
+                  <p>Janeiro</p>
+                  <input type="number" name="hrjan" class="hr jan">
+                </div>
+                <div class="hrs">
+                  <p>Fevereiro</p>
+                  <input type="number" name="hrfev" class="hr fev">
+                </div>
+                <div class="hrs">
+                  <p>Março</p>
+                  <input type="number" name="hrmar" class="hr mar">
+                </div>
+                <div class="hrs">
+                  <p>Abril</p>
+                  <input type="number" name="hrabr" class="hr abr">
+                </div>
+                <div class="hrs">
+                  <p>Maio</p>
+                  <input type="number" name="hrmai" class="hr mai">
+                </div>
+                <div class="hrs">
+                  <p>Junho</p>
+                  <input type="number" name="hrjun" class="hr jun">
+                </div>
+                <div class="hrs">
+                  <p>Julho</p>
+                  <input type="number" name="hrjul" class="hr jul">
+                </div>
+                <div class="hrs">
+                  <p>Agosto</p>
+                  <input type="number" name="hrago" class="hr ago">
+                </div>
+                <div class="hrs">
+                  <p>Setembro</p>
+                  <input type="number" name="hrset" class="hr set">
+                </div>
+                <div class="hrs">
+                  <p>Outubro</p>
+                  <input type="number" name="hrout" class="hr out">
+                </div>
+                <div class="hrs">
+                  <p>Novembro</p>
+                  <input type="number" name="hrnov" class="hr nov">
+                </div>
+                <div class="hrs">
+                  <p>Dezembro</p>
+                  <input type="number" name="hrdez" class="hr dez">
+                </div>
+              </div>
+              <div class="save">
+                <button class="btn modal-btn" data-target-modal="#todo_form">Salvar Alterações</button>
+              </div>
+          </div>
+      </div>
+    </form>
 </body>
 </html>
