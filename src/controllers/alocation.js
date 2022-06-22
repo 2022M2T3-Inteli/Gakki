@@ -7,12 +7,20 @@ const db = new sqlite3.Database(dbPath);
 const app = express();
 
 const getAllAlocations = (req, res) =>{
-
+    const sql = 'SELECT * FROM Alocacao INNER JOIN Funcionario ON Funcionario.Nome = Funcionario.Nome INNER JOIN Funcionario ON Funcionario.Sobrenome = Funcionario.Sobrenome';
+    db.all(sql, [], (err, rows) =>{
+        if(err){
+            throw err;
+        } else {
+            res.json(rows);
+        }
+    });
 }
 
 const createAlocation = (req, res) =>{
     const sql = 'INSERT INTO Alocacao (HorasJaneiro, HorasFevereiro, HorasMarco, HorasAbril, HorasMaio, HorasJunho, HorasJulho, HorasAgosto, HorasSetembro, HorasOutubro, HorasNovembro, HorasDezembro, DataInicialAlocacao, DataFinalAlocacao, ProjetoID, FuncionarioID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-    const { idProject } = req.query.id;
+    const idProject = req.body.projeto;
+    const idEmp = req.body.funcionario;
     const beginDate = req.body.inicial;
     const finalDate = req.body.final;
     const hrJan = req.body.hrjan;
@@ -28,7 +36,7 @@ const createAlocation = (req, res) =>{
     const hrNov = req.body.hrnov;
     const hrDec = req.body.hrdez;
 
-    db.run(sql, [hrJan, hrFeb, hrMar, hrApr, hrMay, hrJun, hrJul, hrAug, hrSep, hrOct, hrNov, hrDec, beginDate, finalDate, idProject, 1], (err) =>{
+    db.run(sql, [hrJan, hrFeb, hrMar, hrApr, hrMay, hrJun, hrJul, hrAug, hrSep, hrOct, hrNov, hrDec, beginDate, finalDate, idProject, idEmp], (err) =>{
         if(err){
             throw err;
         } else {
