@@ -12,13 +12,94 @@ xmlh2.onreadystatechange = () => {
         for(let i = 0; i < response.length; i++) {
             $('#no_status').append(
             `
-                <div class="todo" draggable="true">
-                <button id="add_btn" data-target-modal="#todo_form" value="${response[i].FuncionarioID}">${response[i].Nome} ${response[i].Sobrenome}</button>
+                <div class="todo${response[i].AlocacaoID}" draggable="true">
+                <button id="add_btn" class="${response[i].FuncionarioID}" data-target-modal="#todo_form${response[i].FuncionarioID}" value="${response[i].FuncionarioID}">${response[i].Nome} ${response[i].Sobrenome}</button>
                 <input id="idaloc" name="idaloc" type="hidden" value="${response[i].AlocacaoID}" > 
-                <input id="idfunc" name="idfunc" type="hidden" value="${response[i].FuncionarioID}" > 
+                <input id="idproj" name="idproj" type="hidden" value="${response[i].ProjetoID}" > 
                 </div>
             `
             );
+            $('#modal').append(
+                `
+                <form action="/updatealloc" method="post">
+                <div class="modal" id="todo_form${response[i].FuncionarioID}">
+                <div class="header">
+                    <h1>${response[i].Nome} ${response[i].Sobrenome}</h1>
+                </div>
+                <div class="get">
+                    <h4>Participação no Projeto</h4>
+                    <input id="idfunc" name="idfunc" type="hidden" value="${response[i].FuncionarioID}" >
+                    <input id="idaloc" name="idaloc" type="hidden" value="${response[i].AlocacaoID}" > 
+                    <input id="idproj" name="idproj" type="hidden" value="${response[i].ProjetoID}" > 
+                    <div id="datas">
+                <div class="datai">
+                  <p>Data de Início</p>
+                  <input type="date" id="inicial" name="inicial">
+                </div>
+              </div>
+              <div id="datas">
+                <div class="dataf">
+                  <p>Data de Fim</p>
+                  <input type="date" id="final" name="final">
+                </div>
+              </div>
+              <h4>Horas Mensais neste Projeto</h4>
+              <div id="meses">
+                <div class="hrs">
+                  <p>Janeiro</p>
+                  <input type="number" name="hrjan" class="hr jan" value="${response[i].HorasJaneiro}">
+                </div>
+                <div class="hrs">
+                  <p>Fevereiro</p>
+                  <input type="number" name="hrfev" class="hr fev" value="${response[i].HorasFevereiro}">
+                </div>
+                <div class="hrs">
+                  <p>Março</p>
+                  <input type="number" name="hrmar" class="hr mar" value="${response[i].HorasMarco}">
+                </div>
+                <div class="hrs">
+                  <p>Abril</p>
+                  <input type="number" name="hrabr" class="hr abr" value="${response[i].HorasAbril}">
+                </div>
+                <div class="hrs">
+                  <p>Maio</p>
+                  <input type="number" name="hrmai" class="hr mai" value="${response[i].HorasMaio}">
+                </div>
+                <div class="hrs">
+                  <p>Junho</p>
+                  <input type="number" name="hrjun" class="hr jun" value="${response[i].HorasJunho}">
+                </div>
+                <div class="hrs">
+                  <p>Julho</p>
+                  <input type="number" name="hrjul" class="hr jul" value="${response[i].HorasJulho}">
+                </div>
+                <div class="hrs">
+                  <p>Agosto</p>
+                  <input type="number" name="hrago" class="hr ago" value="${response[i].HorasAgosto}">
+                </div>
+                <div class="hrs">
+                  <p>Setembro</p>
+                  <input type="number" name="hrset" class="hr set" value="${response[i].HorasSetembro}">
+                </div>
+                <div class="hrs">
+                  <p>Outubro</p>
+                  <input type="number" name="hrout" class="hr out" value="${response[i].HorasOutubro}">
+                </div>
+                <div class="hrs">
+                  <p>Novembro</p>
+                  <input type="number" name="hrnov" class="hr nov" value="${response[i].HorasNovembro}">
+                </div>
+                <div class="hrs">
+                  <p>Dezembro</p>
+                  <input type="number" name="hrdez" class="hr dez" value="${response[i].HorasDezembro}">
+                </div>
+              </div>
+                </div>
+                <div class="save">
+                <button class="btn modal-btn" data-target-modal="#todo_form${response[i].FuncionarioID}">Salvar Alterações</button>
+                </div>
+                </form>
+                `);
             attFunc.push(response[i].FuncionarioID);
             console.log(attFunc);
         }
@@ -27,25 +108,26 @@ xmlh2.onreadystatechange = () => {
 
 xmlh2.send();
 
-    let xmlh = new XMLHttpRequest();
-    xmlh.open('GET', '/employees', true);
-    xmlh.onreadystatechange = () => {
-        if(xmlh.status === 200 && xmlh.readyState === 4){
-            let response = JSON.parse(xmlh.responseText);
-            for(let i = 0; i < response.length; i++){
-                let funcAtt = response[i].FuncionarioID; 
-                console.log('loop');
-                console.log(attFunc);
-                if (attFunc.includes(funcAtt)) {
-                   console.log('já tem');
-                } else {
-                    $('#funcdisponiveis').append(`
-                    <div class="todo" draggable="true">
-                    <button id="add_btn" data-target-modal="#todo_form" value="${response[i].Nome}">${response[i].Nome} ${response[i].Sobrenome}</button>
-                    <input id="idfunc" name="idfunc" type="hidden" value="${response[i].FuncionarioID}" > 
-                    </div>`);
-                }
+let xmlh = new XMLHttpRequest();
+xmlh.open('GET', '/employees', true);
+xmlh.onreadystatechange = () => {
+    if(xmlh.status === 200 && xmlh.readyState === 4){
+        let response = JSON.parse(xmlh.responseText);
+        for(let i = 0; i < response.length; i++){
+            let funcAtt = response[i].FuncionarioID; 
+            console.log('loop');
+            console.log(attFunc);
+            if (attFunc.includes(funcAtt)) {
+               console.log('já tem');
+            } else {
+                $('#funcdisponiveis').append(`
+                <div class="todo" draggable="true">
+                <button id="add_btn" data-target-modal="#todo_form" value="${response[i].Nome}">${response[i].Nome} ${response[i].Sobrenome}</button>
+                <input id="idfunc" name="idfunc" type="hidden" value="${response[i].FuncionarioID}" > 
+                </div>
+                `);
             }
+        }
         const todos = document.querySelectorAll('.todo'); 
         const all_status = document.querySelectorAll('.status');
         let draggableTodo = null; 
@@ -97,7 +179,7 @@ xmlh2.send();
             if (this == document.querySelector("#no_status")) {
                 showAttribute(draggableTodo.childNodes[3].value);
             } else {
-    
+                
             }
         }
     
@@ -175,9 +257,6 @@ function showAttribute (id){
                     'projeto' : projid
                 })
             });
-            console.log('yes'); 
-            console.log(projid);
-            console.log(id); 
           swal("Funcionário atribuido com sucesso", {
             icon: "success",
             dangerMode: false

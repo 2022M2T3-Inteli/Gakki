@@ -6,4 +6,5 @@ router.get('/', alocationController.getAllAlocations);
 
 router.post('/', alocationController.createAlocation);
 
+
 module.exports = router;
