@@ -369,7 +369,7 @@ thead
 {
     position: relative;
     display: grid;
-    min-height: 500px;
+    min-height: 250px;
     background: var(--cinza);
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
@@ -454,6 +454,7 @@ thead
 .details .projectlist table tr td
 {
     padding: 10px;
+    text-align: center;
 }
 
 .details .projectlist table tr td:first-child
@@ -464,11 +465,6 @@ thead
 .details .projectlist table tr td:nth-child(5)
 {
     text-align: center;
-}
-
-.details .projectlist table tr td:last-child
-{
-    text-align: end;
 }
 
 .status-complete
