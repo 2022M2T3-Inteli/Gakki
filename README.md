@@ -89,9 +89,9 @@ Então para atingirmos o objetivo da Yamaha, começamos por introduzir uma tela 
 |readme.md<br>
 
 
-<b>documentos</b>: Documentação do projeto<b>
+<b>documentos</b>: Documentação do projeto
 
-<b>src</b>: Código<b>
+<b>src</b>: Código
 
 ## 🛠 Instalação
 
