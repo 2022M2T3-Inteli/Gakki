@@ -12,7 +12,7 @@ xmlh2.onreadystatechange = () => {
         for(let i = 0; i < response.length; i++) {
             $('#no_status').append(
             `
-                <div class="todo${response[i].AlocacaoID}" draggable="true">
+                <div class="todo" draggable="true">
                 <button id="add_btn" class="${response[i].FuncionarioID}" data-target-modal="#todo_form${response[i].FuncionarioID}" value="${response[i].FuncionarioID}">${response[i].Nome} ${response[i].Sobrenome}</button>
                 <input id="idaloc" name="idaloc" type="hidden" value="${response[i].AlocacaoID}" > 
                 <input id="idproj" name="idproj" type="hidden" value="${response[i].ProjetoID}" > 
