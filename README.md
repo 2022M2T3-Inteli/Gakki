@@ -89,34 +89,13 @@ Então para atingirmos o objetivo da Yamaha, começamos por introduzir uma tela 
 |readme.md<br>
 
 
-<b>documentos</b>: Documentação do projeto<b>
+<b>documentos</b>: Documentação do projeto
 
-<b>src</b>: Código<b>
+<b>src</b>: Código
 
 ## 🛠 Instalação
 
-<b>Android:</b>
-
-Faça o Download do JOGO.apk no seu celular.
-Execute o APK e siga as instruções de seu telefone.
-
-```sh
-Coloque código do prompt de comnando se for necessário
-```
-
-<b>Windows:</b>
-
-Não há instalação! Apenas executável!
-Encontre o JOGO.exe na pasta executáveis e execute-o como qualquer outro programa.
-
-```sh
-Coloque código do prompt de comnando se for necessário
-```
-
-<b>HTML:</b>
-
-Não há instalação!
-Encontre o index.html na pasta executáveis e execute-o como uma página WEB (através de algum browser).
+  <p> Não há necessidade de instalação pois é uma aplicação web.</p>
 
 ## 📈 Exemplo de uso
 
@@ -130,34 +109,30 @@ Através da cópia/clone/ download do repositório, altere os dados do readme.md
 
 ## 💻 Configuração para Desenvolvimento
 
-Descreva como instalar todas as dependências para desenvolvimento e como rodar um test-suite automatizado de algum tipo. Se necessário, faça isso para múltiplas plataformas.
 
-Para abrir este projeto você necessita das seguintes ferramentas:
-
--<a href="https://godotengine.org/download">GODOT</a>
-
-```sh
-make install
-npm test
-Coloque código do prompt de comnando se for necessário
+```
+  npm install
+  
+  node index.js
 ```
 
 ## 🗃 Histórico de lançamentos
 
-A cada atualização os detalhes devem ser lançados aqui.
-
-* 0.2.1 - 25/01/2022
-    * MUDANÇA: Atualização de docs (código do módulo permanece inalterado)
-* 0.2.0 - 15/01/2022
-    * MUDANÇA: Remove `setDefaultXYZ()`
-    * ADD: Adiciona `init()`
-* 0.1.1 - 11/01/2022
-    * CONSERTADO: Crash quando chama `baz()` (Obrigado @NomeDoContribuidorGeneroso!)
-* 0.1.0 - 10/01/2022
-    * O primeiro lançamento adequado
-    * MUDANÇA: Renomeia `foo()` para `bar()`
-* 0.0.1 - 01/01/2022
-    * Trabalho em andamento
+* 0.2.1 - 13/06/2022
+    * Integração
+    * Finalização da documentação
+    * Entrega final
+* 0.2.0 - 30/05/2022
+    * Back-end
+    * Banco de dados
+* 0.1.1 - 16/05/2022
+    * Início Back-end
+    * Início documentação
+* 0.1.0 - 02/05/2022
+    * Conclusão front-end
+* 0.0.1 - 18/04/2022
+    * Wireframe
+    * Análises e definições
 
 ## 📋 Licença/License
 
@@ -165,11 +140,8 @@ A cada atualização os detalhes devem ser lançados aqui.
 
 ## 🎓 Referências
 
-Aqui estão as referências usadas no projeto.
-
-1. <https://github.com/iuricode/readme-template>
-2. <https://github.com/gabrieldejesus/readme-model>
-3. <https://creativecommons.org/share-your-work/>
-4. https://chooser-beta.creativecommons.org/
-5. <https://freesound.org/>
-6. Músicas por: <a href="https://freesound.org/people/DaveJf/sounds/616544/"> DaveJf </a> e <a href="https://freesound.org/people/DRFX/sounds/338986/"> DRFX </a> ambas com Licença CC 0.
+1. <https://youtube.com/playlist?list=PLucm8g_ezqNoNHU8tjVeHmRGBFnjDIlxD>
+2. <https://integrada.minhabiblioteca.com.br/reader/books/9788536533100/pageid/51>
+3. <https://integrada.minhabiblioteca.com.br/reader/books/9788565837484/pageid/173>
+4. <https://www.devmedia.com.br/json-javascript-object-notation/6992>
+5. <https://aelaschool.com/research/teste-de-usabilidade-como-preparar-e-conduzir/>
