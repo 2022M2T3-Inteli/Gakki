@@ -142,6 +142,19 @@ app.post('/updateemployee', (req, res) =>{
     });
 });
 
+app.post('/deleteatt', (req, res) =>{
+    const db = new sqlite3.Database(dbPath);
+    const id = req.body.alocacao;
+    const sql = `DELETE FROM Alocacao WHERE AlocacaoID = ${id}`;
+    db.run(sql, [], (err) =>{
+        if(err){
+            throw err;
+        } else {
+            res.send();
+        }
+    });
+});
+
 app.post('/deleteproject', (req, res) =>{
     const db = new sqlite3.Database(dbPath);
     const id = req.body.id;

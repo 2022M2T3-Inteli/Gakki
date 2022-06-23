@@ -125,6 +125,7 @@ setTimeout(() => {
                   <div class="todo" draggable="true">
                   <button id="add_btn" data-target-modal="#todo_form" value="${response[i].Nome}">${response[i].Nome} ${response[i].Sobrenome}</button>
                   <input id="idfunc" name="idfunc" type="hidden" value="${response[i].FuncionarioID}" > 
+                  <input id="idaloc" name="idaloc" type="hidden" value="${response[i].AlocacaoID}" > 
                   </div>
                   `);
               }
@@ -178,9 +179,10 @@ setTimeout(() => {
               this.appendChild(draggableTodo);
           
               if (this == document.querySelector("#no_status")) {
-                  showAttribute(draggableTodo.childNodes[3].value);
+                showAttribute(draggableTodo.childNodes[3].value);
               } else {
-                  
+                deleteAttribute(draggableTodo.childNodes[3].value);
+                console.log(draggableTodo.childNodes[3].value);
               }
           }
       
@@ -218,7 +220,7 @@ setTimeout(() => {
   
   xmlh.send();
   
-}, 250);
+}, 100);
 
 
 
@@ -263,6 +265,40 @@ function showAttribute (id){
                 })
             });
           swal("Funcionário atribuido com sucesso", {
+            icon: "success",
+            dangerMode: false
+          }).then((ok) =>{
+            if(ok){
+                location.reload();
+            }
+          })
+         }
+      });
+}
+
+
+function deleteAttribute (id){
+    swal({
+        title: `Deseja remover o funcionário?`,
+        icon: "info",
+        buttons: [
+            'Cancelar', 'Remover'
+        ],
+        dangerMode: true,
+      })
+      .then((willAtt) => {
+        if (willAtt) {
+            let url = '/deleteatt';
+            $.ajax({
+                type: 'POST',
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify({
+                    'alocacao': id
+                })
+            });
+          swal("Funcionário desatribuido com sucesso", {
             icon: "success",
             dangerMode: false
           }).then((ok) =>{
