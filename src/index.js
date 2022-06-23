@@ -28,16 +28,15 @@ app.use('/governance', governanceRoutes);
 app.use('/role', roleRoutes);
 app.use('/alocation', alocationRoutes);
 
-app.get('/alteraratt', (req, res) =>{
+ app.get('/alteraratt', (req, res) =>{
     const id = req.query["id"];
     const db = new sqlite3.Database(dbPath);
-    const sql = `SELECT * FROM Alocacao INNER JOIN Funcionario ON Funcionario.Nome = Alocacao.Nome INNER JOIN Funcionario ON Funcionario.Sobrenome = Alocacao.Sobrenome WHERE ProjetoID = ${id}`;
-    db.get(sql, [], (err, rows) =>{
+    const sql = `SELECT * FROM Alocacao INNER JOIN Funcionario ON Funcionario.FuncionarioID = Alocacao.FuncionarioID WHERE ProjetoID = ${id}`;
+    db.all(sql, [], (err, rows) =>{
         if(err){
             throw err;
         } else {
-            res.write(rows)
-            res.send();
+            res.json(rows); 
         }
     });
 });
@@ -50,7 +49,6 @@ app.get('/alterarprojeto', (req, res) =>{
         if(err){
             throw err;
         } else {
-            console.log(row);
             res.render('alterarprojeto', { projeto: row });
         }
     });
