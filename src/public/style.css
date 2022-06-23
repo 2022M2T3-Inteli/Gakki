@@ -26,6 +26,8 @@ a {
 thead
 {
     pointer-events: none;
+    color: var(--secundaria);
+    font-weight: bold;
 }
 .contents {
     display: flex;
@@ -80,7 +82,6 @@ thead
 .navbar ul li:nth-child(1)
 {
     margin-bottom: 70px;
-    pointer-events: none;
 }
 
 .navbar ul li a
@@ -176,7 +177,6 @@ thead
     background: transparent;
     border-radius: 50%;
     box-shadow: 35px 35px 0 10px var(--primaria);
-    pointer-events: none;
 }
 
 .navbar ul li:hover a::after,
@@ -191,7 +191,6 @@ thead
     background: transparent;
     border-radius: 50%;
     box-shadow: 35px -35px 0 10px var(--primaria);
-    pointer-events: none;
 }
 
 .main
@@ -403,25 +402,15 @@ thead
 .btn
 {
     position: relative;
-    padding: 5px 10px;
     background: var(--terciaria);
     color: var(--cinza);
-    border-radius: 6px;
+    border-radius: 1em;
     text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    outline: none;
 }
-
-.adicionar-func,
-.details .projectlist table tr td:nth-child(5),
-.details .projectlist table tr td:nth-child(3)
-{
-    text-align: center;
-}
-
-.details .projectlist.project table tr td:nth-child(3)
- {
-     text-align: start;
- }
-
 
 .details table
 {
@@ -435,20 +424,13 @@ thead
     font-weight: 600;
 }
 
-.details .projectlist table tr
-{
-    color: var(--preto);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
 .details .projectlist table tr:last-child
 {
     border-bottom: none;
 }
 .details .projectlist table tbody tr:hover
 {
-    background: var(--terciaria);
-    color: var(--primaria);
+    background: rgba(0, 0, 0, 0.08);
 }
 
 .details .projectlist table tr td
@@ -569,10 +551,11 @@ thead
  .choices .btn1:hover,
  .choices .btn2:hover
  {
-     background: var(--secundaria);
-     cursor: pointer;
-     margin-bottom: 25px;
-     transition: 0.5s;
+    background: var(--secundaria);
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.5s;
+    border: 1px solid;
  }
  
  .choices .btn1:hover i,
@@ -621,11 +604,11 @@ thead
  
  .contents .container.mt-5 .title
  {
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     flex-direction: column;
-     color: var(--secundaria);   
+    display: flex;
+    justify-content: center;
+    margin-left: 30vw;
+    flex-direction: column;
+    color: var(--secundaria);  
  }
  
  .contents .container.mt-5 .title.func
@@ -635,7 +618,7 @@ thead
  
  .contents .container.mt-5 .title h1
  {
-     margin-right: 7.5em; 
+    margin-top: 1.5em;
  }
  
  .contents .container.mt-5 .title.func h1
@@ -1036,7 +1019,7 @@ thead
 
 /* MODAL */
 
-.btn 
+#modal .btn 
 {
     padding: 0.5rem 1rem;
     border: 1px solid #ccc;
@@ -1045,7 +1028,7 @@ thead
     outline: none;
 }
 
-.btn:active
+#modal .btn:active
 {
     transform: scale(0.9);
 }
@@ -1165,22 +1148,6 @@ input::-webkit-inner-spin-button {
     border-radius: 50px;
 }
 
-.fa-file-pen{
-    color: var(--secundaria);
-}
-
-.fa-user-pen{
-    color: var(--secundaria);
-}
-
-.fa-trash-can{
-    color: var(--secundaria);
-}
-
-.fa-user-xmark{
-    color: var(--secundaria);
-}
-
 .projectlist.update {
     display: block !important;
     min-height: 0 !important;
@@ -1198,4 +1165,19 @@ input::-webkit-inner-spin-button {
 
 .projectlist.update #descricao {
     width: 450%;
+}
+
+td i {
+    font-size: 1.05em;
+    color: var(--terciaria);
+    cursor: pointer;
+}
+
+#functext {
+    text-align: center;
+    margin-left: -30vw;
+}
+
+#logo {
+    pointer-events: none;
 }
