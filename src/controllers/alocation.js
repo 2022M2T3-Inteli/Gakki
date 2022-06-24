@@ -7,7 +7,7 @@ const db = new sqlite3.Database(dbPath);
 const app = express();
 
 const getAllAlocations = (req, res) =>{
-    const sql = 'SELECT * FROM Alocacao';
+    const sql = 'SELECT * FROM Alocacao INNER JOIN Funcionario ON Funcionario.FuncionarioID = Alocacao.FuncionarioID';
     db.all(sql, [], (err, rows) =>{
         if(err){
             throw err;

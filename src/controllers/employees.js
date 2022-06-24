@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const getAllEmployees = (req, res) =>{
-    const sql = 'SELECT * FROM Funcionario INNER JOIN Governanca ON Governanca.GovernancaID = Funcionario.GovernancaID INNER JOIN Funcao ON Funcao.FuncaoID = Funcionario.FuncaoID';
+    const sql = 'SELECT * FROM Funcionario LEFT JOIN Governanca ON Governanca.GovernancaID = Funcionario.GovernancaID LEFT JOIN Funcao ON Funcao.FuncaoID = Funcionario.FuncaoID';
     db.all(sql, [], (err, rows) =>{
         if(err){
             throw err;

@@ -1,4 +1,46 @@
-//Gráfico bar
+let hoursAllocFuncJan = 0;
+let hoursAllocFuncFeb = 0;
+let hoursAllocFuncMar = 0;
+let hoursAllocFuncApr = 0;
+let hoursAllocFuncMay = 0;
+let hoursAllocFuncJun = 0;
+let hoursAllocFuncJul = 0;
+let hoursAllocFuncAug = 0;
+let hoursAllocFuncSep = 0;
+let hoursAllocFuncOct = 0;
+let hoursAllocFuncNov = 0;
+let hoursAllocFuncDec = 0;
+
+
+let hoursDisFuncYamahaJan = 0;
+let hoursDisFuncYamahaFeb = 0;
+let hoursDisFuncYamahaMar = 0;
+let hoursDisFuncYamahaApr = 0;
+let hoursDisFuncYamahaMay = 0;
+let hoursDisFuncYamahaJun = 0;
+let hoursDisFuncYamahaJul = 0;
+let hoursDisFuncYamahaAug = 0;
+let hoursDisFuncYamahaSep = 0;
+let hoursDisFuncYamahaOct = 0;
+let hoursDisFuncYamahaNov = 0;
+let hoursDisFuncYamahaDec = 0;
+
+
+let hoursDisAllFuncJan = 0;
+let hoursDisAllFuncFeb = 0;
+let hoursDisAllFuncMar = 0;
+let hoursDisAllFuncApr = 0;
+let hoursDisAllFuncMay = 0;
+let hoursDisAllFuncJun = 0;
+let hoursDisAllFuncJul = 0;
+let hoursDisAllFuncAug = 0;
+let hoursDisAllFuncSep = 0;
+let hoursDisAllFuncOct = 0;
+let hoursDisAllFuncNov = 0;
+let hoursDisAllFuncDec = 0;
+
+
+function generateWorkloadGraph(){
 let barGrafico = document.getElementById("barGrafico");
 const config = {
   type: "line",
@@ -13,8 +55,8 @@ const config = {
   data: {
     labels: [
       "Janeiro",
-      "Feverreiro",
-      "Marco",
+      "Fevereiro",
+      "Março",
       "Abril",
       "Maio",
       "Junho",
@@ -29,8 +71,8 @@ const config = {
       {
         label: "humanResources",
         data: [
-          1000, 6900, 7200, 7100, 5600, 6010, 5000, 6000, 5600, 5000, 5750,
-          5590,
+          hoursAllocFuncJan, hoursAllocFuncFeb, hoursAllocFuncMar, hoursAllocFuncApr, hoursAllocFuncMay, hoursAllocFuncJun, hoursAllocFuncJul, hoursAllocFuncAug, hoursAllocFuncSep, hoursAllocFuncOct, hoursAllocFuncNov,
+          hoursAllocFuncDec,
         ],
         backgroundColor: [" #247BA0"],
         borderColor: " #0A2463",
@@ -40,8 +82,8 @@ const config = {
       {
         label: "Workload Needed",
         data: [
-          6500, 6500, 6500, 6500, 6500, 6500, 6500, 6500, 6500, 6500, 6500,
-          6500,
+          500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500,
+          500,
         ],
         type: "line",
         borderColor: "#CCCC00",
@@ -50,8 +92,8 @@ const config = {
       {
         label: "IT Limitation Internal and third parties",
         data: [
-          5500, 5500, 5500, 5500, 5500, 5500, 5500, 5500, 5500, 5500, 5500,
-          5500,
+          hoursDisAllFuncJan, hoursDisAllFuncFeb, hoursDisAllFuncMar, hoursDisAllFuncApr, hoursDisAllFuncMay, hoursDisAllFuncJun, hoursDisAllFuncJul, hoursDisAllFuncAug, hoursDisAllFuncSep, hoursDisAllFuncOct,
+          hoursDisAllFuncNov, hoursDisAllFuncDec
         ],
         type: "line",
         borderColor: "#FB3640",
@@ -60,8 +102,7 @@ const config = {
       {
         label: "IT Limitation only with internal resources",
         data: [
-          2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500,
-          2500,
+          hoursDisFuncYamahaJan, hoursDisFuncYamahaFeb, hoursDisFuncYamahaMar, hoursDisFuncYamahaApr, hoursDisFuncYamahaMay, hoursDisFuncYamahaJun, hoursDisFuncYamahaJul, hoursDisFuncYamahaAug, hoursDisFuncYamahaSep, hoursDisFuncYamahaOct, hoursDisFuncYamahaNov, hoursDisFuncYamahaDec
         ],
         type: "line",
         borderColor: "#FB3640",
@@ -72,29 +113,68 @@ const config = {
 };
 
 let myGraph = new Chart(barGrafico, config);
-//Gráfico bar
+}
 
-//Gráfico pie
-let pieGrafico = document.getElementById("pieGrafico");
-const dataPie = {
-  labels: ["Projeto 1", "Projeto 2", "Projeto 3", "Projeto 4", "Projeto 5"],
-  datasets: [
-    {
-      label: "Quantidade funcionários por projeto",
-      data: [250, 50, 100, 100, 100],
-      backgroundColor: [" #247BA0", " #605F5E", " #e53420", " #0A2463"],
-      hoverOffset: 4,
-    },
-  ],
-};
 
-const configPie = {
-  type: "pie",
-  data: dataPie,
-};
+let ajaxWorkload = new XMLHttpRequest();
+ajaxWorkload.open('GET', '/alocation', true);
 
-let myPieGrafico = new Chart(pieGrafico, configPie);
-// Gráfico pie
+ajaxWorkload.onreadystatechange = () =>{
+  if(ajaxWorkload.status === 200 && ajaxWorkload.readyState === 4){
+    let response = JSON.parse(ajaxWorkload.responseText);
+    for(let i = 0; i < response.length; i++){
+      console.log(response[i]);
+        hoursAllocFuncJan += response[i].HorasJaneiro
+        hoursAllocFuncFeb += response[i].HorasFevereiro
+        hoursAllocFuncMar += response[i].HorasMarco
+        hoursAllocFuncApr += response[i].HorasAbril
+        hoursAllocFuncMay += response[i].HorasMaio
+        hoursAllocFuncJun += response[i].HorasJunho
+        hoursAllocFuncJul += response[i].HorasJulho
+        hoursAllocFuncAug += response[i].HorasAgosto
+        hoursAllocFuncSep += response[i].HorasSetembro
+        hoursAllocFuncOct += response[i].HorasOutubro
+        hoursAllocFuncNov += response[i].HorasNovembro
+        hoursAllocFuncDec += response[i].HorasDezembro
+
+        if(response[i].FuncionarioYamaha === 1){
+          console.log(response[i]);
+          hoursDisFuncYamahaJan += response[i].HorasProjetos
+          hoursDisFuncYamahaFeb += response[i].HorasProjetos
+          hoursDisFuncYamahaMar += response[i].HorasProjetos
+          hoursDisFuncYamahaApr += response[i].HorasProjetos
+          hoursDisFuncYamahaMay += response[i].HorasProjetos
+          hoursDisFuncYamahaJun += response[i].HorasProjetos
+          hoursDisFuncYamahaJul += response[i].HorasProjetos
+          hoursDisFuncYamahaAug += response[i].HorasProjetos
+          hoursDisFuncYamahaSep += response[i].HorasProjetos
+          hoursDisFuncYamahaOct += response[i].HorasProjetos
+          hoursDisFuncYamahaNov += response[i].HorasProjetos
+          hoursDisFuncYamahaDec += response[i].HorasProjetos
+        }
+
+        hoursDisAllFuncJan += response[i].HorasProjetos
+        hoursDisAllFuncFeb += response[i].HorasProjetos
+        hoursDisAllFuncMar += response[i].HorasProjetos
+        hoursDisAllFuncApr += response[i].HorasProjetos
+        hoursDisAllFuncMay += response[i].HorasProjetos
+        hoursDisAllFuncJun += response[i].HorasProjetos
+        hoursDisAllFuncJul += response[i].HorasProjetos
+        hoursDisAllFuncAug += response[i].HorasProjetos
+        hoursDisAllFuncSep += response[i].HorasProjetos
+        hoursDisAllFuncOct += response[i].HorasProjetos
+        hoursDisAllFuncNov += response[i].HorasProjetos
+        hoursDisAllFuncDec += response[i].HorasProjetos
+    }
+    console.log(hoursDisFuncYamahaJan);
+    console.log(hoursDisAllFuncJan);
+    generateWorkloadGraph();
+  }
+}
+
+ajaxWorkload.send();
+
+
 
 // variáveis que armazenam as quantidades de projetos em cada mês
 let january = 0;
