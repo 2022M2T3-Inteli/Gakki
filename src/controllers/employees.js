@@ -1,3 +1,5 @@
+// Controle das ações executadas no banco de dados.
+
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
@@ -9,6 +11,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Operação (Selecionar todos) realizada com os atributos definidos abaixo.
+// Junção de duas tabelas a partir do left join
 const getAllEmployees = (req, res) =>{
     const sql = 'SELECT * FROM Funcionario LEFT JOIN Governanca ON Governanca.GovernancaID = Funcionario.GovernancaID LEFT JOIN Funcao ON Funcao.FuncaoID = Funcionario.FuncaoID';
     db.all(sql, [], (err, rows) =>{
@@ -20,6 +24,7 @@ const getAllEmployees = (req, res) =>{
     });
 }
 
+// Operação (Selecionar por Id) realizada com os atributos definidos abaixo.
 const getEmployeeById = (req, res) =>{
     const { id } = req.params;
     const sql = `SELECT * FROM Funcionario WHERE FuncionarioID = ${id}`;
@@ -32,6 +37,7 @@ const getEmployeeById = (req, res) =>{
     });
 }
 
+// Operação (Criação/Adição) realizada com os atributos definidos abaixo.
 const createEmployee = (req, res) =>{
     const firstName = req.body.nome;
     const lastName = req.body.sobrenome;
@@ -54,6 +60,7 @@ const createEmployee = (req, res) =>{
     });
 }
 
+// Operação (Alteração) realizada com os atributos definidos abaixo.
 const updateEmployee = (req, res) =>{
     const { id } = req.params;
 
@@ -77,6 +84,7 @@ const updateEmployee = (req, res) =>{
     });
 }
 
+// Operação (Deletar) realizada com os atributos definidos abaixo.
 const deleteEmployee = (req, res) =>{
     const { id } = req.params;
 

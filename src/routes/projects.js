@@ -1,18 +1,14 @@
+// Rotas que conectam a tabela "Projeto" do banco de dados com o código.
+
 const express = require('express');
 const projectsController = require('../controllers/projects');
 
 const router = express.Router();
 
-router.get('/', projectsController.getAllProjects);
+router.get('/', projectsController.getAllProjects);//Retorna todos os dados presentes na tabela
 
-//router.get('/alterar', projectsController.alterProject);
+router.post('/', projectsController.createProject);// Cria um dado na tabela
 
-//router.get('/:id', projectsController.getProjectById);
-
-router.post('/', projectsController.createProject);
-
-//router.post('/update', projectsController.updateProject);
-
-router.delete('/:id', projectsController.deleteProject);
+router.delete('/:id', projectsController.deleteProject);// Deleta
 
 module.exports = router;

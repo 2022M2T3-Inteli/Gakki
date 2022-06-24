@@ -1,3 +1,5 @@
+// Controle das ações executadas no banco de dados.
+
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
@@ -6,6 +8,8 @@ const dbPath = './database/yamaha.db';
 const db = new sqlite3.Database(dbPath);
 const app = express();
 
+// Operação (Selecionar todos) realizada com os atributos definidos abaixo.
+// Junção de duas tabelas a partir do inner join
 const getAllAlocations = (req, res) =>{
     const sql = 'SELECT * FROM Alocacao INNER JOIN Funcionario ON Funcionario.FuncionarioID = Alocacao.FuncionarioID';
     db.all(sql, [], (err, rows) =>{
@@ -17,6 +21,7 @@ const getAllAlocations = (req, res) =>{
     }); 
 }
 
+// Operação (Criação/Adição) realizada com os atributos definidos abaixo.
 const createAlocation = (req, res) =>{
     const sql = 'INSERT INTO Alocacao (HorasJaneiro, HorasFevereiro, HorasMarco, HorasAbril, HorasMaio, HorasJunho, HorasJulho, HorasAgosto, HorasSetembro, HorasOutubro, HorasNovembro, HorasDezembro, DataInicialAlocacao, DataFinalAlocacao, ProjetoID, FuncionarioID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
     const idProject = req.body.projeto;
@@ -45,6 +50,7 @@ const createAlocation = (req, res) =>{
     });
 }
 
+// Operação (Alteração) realizada com os atributos definidos abaixo.
 const updateAllocation = (req, res) =>{
     const idAloc = req.body.idaloc;
     const idProject = req.body.idproj;

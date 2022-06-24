@@ -1,3 +1,5 @@
+// Controle das ações executadas no banco de dados.
+
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose(); 
 const bodyParser = require('body-parser');
@@ -9,6 +11,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Operação (Selecionar todos) realizada com os atributos definidos abaixo.
 const getAllRole = (req, res) =>{ 
     const sql = 'SELECT * FROM Funcao';
     db.all(sql, [], (err, rows) =>{
@@ -20,6 +23,7 @@ const getAllRole = (req, res) =>{
     });
 }
 
+// Operação (Selecionar por Id) realizada com os atributos definidos abaixo.
 const getRoleById = (req, res) =>{
     const { id } = req.params;
     const sql = `SELECT * FROM Funcao WHERE FuncaoID = ${id}`;
@@ -32,6 +36,7 @@ const getRoleById = (req, res) =>{
     });
 }
 
+// Operação (Criação/Adição) realizada com os atributos definidos abaixo.
 const createRole = (req, res) =>{
     const title = req.body.functitulo;
     const area = req.body.funcarea;
@@ -47,6 +52,7 @@ const createRole = (req, res) =>{
     });
 }
 
+// Operação (Alteração) realizada com os atributos definidos abaixo.
 const updateRole = (req, res) =>{
     const { id } = req.params;
 
@@ -66,6 +72,7 @@ const updateRole = (req, res) =>{
     });
 }
 
+// Operação (Deletar) realizada com os atributos definidos abaixo.
 const deleteRole = (req, res) =>{
     const { id } = req.params;
     const sql = `DELETE FROM Funcao WHERE FuncaoID = ${id}`;

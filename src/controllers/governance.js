@@ -1,7 +1,8 @@
+// Controle das ações executadas no banco de dados.
+
 const express = require('express');
 const bodyParser = require('body-parser');
-//const req = require('express/lib/request'); // pq só governanca tem isso?
-//const res = require('express/lib/response'); // pq ta cinza o res e o req?
+
 const sqlite3 = require('sqlite3').verbose();
 
 const dbPath = './database/yamaha.db';
@@ -12,7 +13,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const getAllGovernance = (req, res) =>{ // qual o problema com esse req?
+// Operação (Selecionar todos) realizada com os atributos definidos abaixo.
+const getAllGovernance = (req, res) =>{ 
     const sql = 'SELECT * FROM Governanca';
     db.all(sql, [], (err, rows) =>{
         if(err){
@@ -23,6 +25,7 @@ const getAllGovernance = (req, res) =>{ // qual o problema com esse req?
     });
 }
 
+// Operação (Selecionar por Id) realizada com os atributos definidos abaixo.
 const getGovernanceById = (req, res) =>{
     const { id } = req.params;
     const sql = `SELECT * FROM Governanca WHERE GovernancaID = ${id}`;
@@ -35,6 +38,7 @@ const getGovernanceById = (req, res) =>{
     });
 }
 
+// Operação (Criação/Adição) realizada com os atributos definidos abaixo.
 const createGovernance = (req, res) =>{
     const country = req.body.govpais;
     const state = req.body.govest;
@@ -51,6 +55,7 @@ const createGovernance = (req, res) =>{
 
 }
 
+// Operação (Alteração) realizada com os atributos definidos abaixo.
 const updateGovernance = (req, res) =>{
     const { id } = req.params; // pq esse id ta escuro?
 
@@ -68,6 +73,7 @@ const updateGovernance = (req, res) =>{
     });
 }
 
+// Operação (Deletar) realizada com os atributos definidos abaixo.
 const deleteGovernance = (req,res) => {
     const { id } = req.params;
 
@@ -88,4 +94,3 @@ module.exports = {
     updateGovernance,
     deleteGovernance
 }
-

@@ -1,3 +1,5 @@
+// Controle das ações executadas no banco de dados.
+
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
@@ -8,6 +10,8 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Operação (Selecionar todos) realizada com os atributos definidos abaixo.
+// Junção de duas tabelas a partir do inner join
 const getAllProjects = (req, res) =>{
     const sql = 'SELECT * FROM Projeto INNER JOIN Governanca ON Governanca.GovernancaID = Projeto.GovernancaID';
     db.all(sql, [], (err, rows) =>{
@@ -19,6 +23,7 @@ const getAllProjects = (req, res) =>{
     });
 }
 
+// Operação (Criação/Adição) realizada com os atributos definidos abaixo.
 const createProject = (req, res) =>{
     const name = req.body.nome;
     const description = req.body.descricao;
@@ -39,26 +44,7 @@ const createProject = (req, res) =>{
     });
 }
 
-// const updateProject = (req, res) =>{
-//     const id = req.body.id;
-//     const name = req.body.nome;
-//     const description = req.body.descricao;
-//     const city = req.body.governanca;
-//     const principalResponsible = req.body.responsavel;
-//     const beginDate = req.body.datainicial;
-//     const finalDate = req.body.datafinal;
-
-//     const sql = `UPDATE Projeto SET NomeProjeto = ?, Descricao = ?, PrincipalResponsavel = ?, DataInicial = ?, DataFinal = ?, GovernancaID = ? WHERE ProjetoID = ${id}`;
-
-//     db.run(sql, [name, description, principalResponsible, beginDate, finalDate, city], (err) =>{
-//         if(err){
-//             throw err;
-//         } else {
-//             res.render('home');
-//         }
-//     });
-// }
-
+// Operação (Deletar) realizada com os atributos definidos abaixo.
 const deleteProject = (req, res) =>{
     const { id } = req.params;
     const sql = `DELETE FROM Projeto WHERE ProjetoID = ${id}`;
@@ -73,9 +59,6 @@ const deleteProject = (req, res) =>{
 
 module.exports = {
     getAllProjects,
-    //getProjectById,
     createProject,
-    //updateProject,
     deleteProject,
-    //alterProject
 }
