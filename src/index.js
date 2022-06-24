@@ -144,7 +144,7 @@ app.post('/updatealloc', (req, res) =>{
 app.get('/alterarfuncionario', (req, res) =>{
     const id = req.query["id"];
     const db = new sqlite3.Database(dbPath);
-    const sql = `SELECT * FROM Funcionario INNER JOIN Governanca ON Governanca.GovernancaID = Funcionario.GovernancaID INNER JOIN Funcao ON Funcao.FuncaoID = Funcionario.FuncaoID WHERE FuncionarioID = ${id}`;
+    const sql = `SELECT * FROM Funcionario LEFT JOIN Governanca ON Governanca.GovernancaID = Funcionario.GovernancaID LEFT JOIN Funcao ON Funcao.FuncaoID = Funcionario.FuncaoID WHERE FuncionarioID = ${id}`;
     db.get(sql, [], (err, row) =>{
         if(err){
             throw err;

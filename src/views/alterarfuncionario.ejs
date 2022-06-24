@@ -125,7 +125,7 @@
             <label for="governanca" id="labelTipo2">Governança</label>
             <br>
             <select name="governanca" id="tipo2" class="governanca" required>
-                <option value="selecione">Selecione</option>
+                <option value=<%= funcionario.GovernancaID %> ><%= funcionario.Estado %> </option>
             </select>
         </div>
           <div class="row1">
@@ -139,7 +139,7 @@
               <label for="cargo">Cargo</label>
               <br>
               <select name="funcaoID" id="funcaoID" required>
-                <option value="selecione">Selecione</option>
+                <option value=<%= funcionario.FuncaoID %> ><%= funcionario.Titulo %> </option>
               </select>
           </div>
           <div class="row5">
