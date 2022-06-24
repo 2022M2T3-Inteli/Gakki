@@ -6,6 +6,7 @@ ajax.onreadystatechange = () =>{
         let response = JSON.parse(ajax.responseText);
         console.log(response);
         for(let i = 0; i < response.length; i++){
+            // Atualiza as informações da tabela com a resposta da requisição
             $('#tableProjects').append(
                 `<tr>
                     <td>${response[i].ProjetoID}</td>
@@ -19,7 +20,7 @@ ajax.onreadystatechange = () =>{
         }
     }
 }
-
+// Envia requisição
 ajax.send();
 
 
@@ -31,6 +32,7 @@ let ajax2 = new XMLHttpRequest();
         let response = JSON.parse(ajax2.response);
         console.log(response);
         for(let i = 0; i < response.length; i++){
+            // Atualiza as informações da tabela com a resposta da requisição
             $('#tableEmployees').append(
             `<tr>
                 <td>${response[i].Registro}</td>
@@ -48,9 +50,10 @@ let ajax2 = new XMLHttpRequest();
         }
     }
 }
-
+// Envia requisição
 ajax2.send();
 
+// requisição ajax que retorna todos as funções cadastradas no banco de dados
 let ajax3 = new XMLHttpRequest();
     ajax3.open('GET', '/role', true);
     ajax3.onreadystatechange = () =>{
@@ -58,6 +61,7 @@ let ajax3 = new XMLHttpRequest();
         let response = JSON.parse(ajax3.response);
         console.log(response);
         for(let i = 0; i < response.length; i++){
+            // Atualiza as informações da tabela com a resposta da requisição
             $('#tableFunctions').append(
             `<tr>
                 <td>${response[i].FuncaoID}</td>
@@ -70,9 +74,10 @@ let ajax3 = new XMLHttpRequest();
         }
     }
 }
-
+// Envia requisição
 ajax3.send();
 
+// requisição ajax que retorna todos as governanças cadastradas no banco de dados
 let ajax4 = new XMLHttpRequest();
     ajax4.open('GET', '/governance', true);
     ajax4.onreadystatechange = () =>{
@@ -80,6 +85,7 @@ let ajax4 = new XMLHttpRequest();
         let response = JSON.parse(ajax4.response);
         console.log(response);
         for(let i = 0; i < response.length; i++){
+            // Atualiza as informações da tabela com a resposta da requisição
             $('#tableGovernances').append(
             `<tr>
                 <td>${response[i].GovernancaID}</td>
@@ -93,10 +99,10 @@ let ajax4 = new XMLHttpRequest();
         }
     }
 }
-
+// Envia requisição
 ajax4.send();
 
-
+// Função que mostra o alerta deseja excluir esse projeto
 function showDeleteToastProject(id){
     swal({
         title: "Deseja excluir esse projeto?",
@@ -130,7 +136,7 @@ function showDeleteToastProject(id){
       });
 }
 
-
+// Função que mostra o alerta deseja exlcuir esse funcionário
 function showDeleteToastEmployee(id){
     swal({
         title: "Deseja excluir esse funcionário(a)?",
@@ -164,6 +170,7 @@ function showDeleteToastEmployee(id){
       });
 }
 
+// Função que mostra o alerta deseja excluir essa função
 function showDeleteToastFunction(id){
     swal({
         title: "Deseja excluir essa função?",
@@ -196,7 +203,7 @@ function showDeleteToastFunction(id){
          }
       });
 }
-
+// Função que mostra o alerta deseja excluir essa governança
 function showDeleteToastGovernance(id){
     swal({
         title: "Deseja excluir essa governança?",

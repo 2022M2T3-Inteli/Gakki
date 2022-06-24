@@ -1,3 +1,4 @@
+// Lógica que mostra o alerta função cadastrada com sucesso
 if(localStorage.getItem('message')){
     if(localStorage.getItem('message') == 'created role'){
         toastShow();

@@ -1,3 +1,4 @@
+// Lógica que mostra alerta função atualizada com sucesso
 if(localStorage.getItem('message')){
     if(localStorage.getItem('message') == 'created governance'){
         toastShow();

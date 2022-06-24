@@ -1,3 +1,4 @@
+// Importando os módulos utilizados na aplicação
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -5,29 +6,35 @@ const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
 const dbPath = './database/yamaha.db';
 
+// Criando um servidor e definindo a porta
 const app = express();
 const PORT = 3000;
 
+// Importando os arquivos de rotas para utilizá-los
 const projectsRoutes = require('./routes/projects');
 const employeesRoutes = require('./routes/employees');
 const governanceRoutes = require('./routes/governance');
 const roleRoutes = require('./routes/role');
 const alocationRoutes = require('./routes/alocation');
 
+// Servindo arquivos estáticos e utilizando os módulos body-parser e cors
 app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
+// Utilizando EJS
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
 
+// Utilizando os arquivos de rotas importados acima
 app.use('/projects', projectsRoutes);
 app.use('/employees', employeesRoutes);
 app.use('/governance', governanceRoutes);
 app.use('/role', roleRoutes);
 app.use('/alocation', alocationRoutes);
 
+// Altera dados de uma atribuição já existente no banco de dados
  app.get('/alteraratt', (req, res) =>{
     const id = req.query["id"];
     const db = new sqlite3.Database(dbPath);
@@ -41,6 +48,7 @@ app.use('/alocation', alocationRoutes);
     });
 });
 
+// Renderiza a página alterar projeto com as informações do projeto com o id especificado
 app.get('/alterarprojeto', (req, res) =>{
     const id = req.query["id"];
     const db = new sqlite3.Database(dbPath);
@@ -54,6 +62,7 @@ app.get('/alterarprojeto', (req, res) =>{
     });
 });
 
+// Atualiza um projeto já existente no banco de dados
 app.post('/updateproject', (req, res) =>{
     const db = new sqlite3.Database(dbPath);
     const id = req.body.id;
@@ -75,7 +84,7 @@ app.post('/updateproject', (req, res) =>{
     });
 });
 
-
+// Atualiza governança já existente no banco de dados
 app.post('/updategov', (req, res) =>{
     const db = new sqlite3.Database(dbPath);
     const id = req.body.id;
@@ -94,6 +103,7 @@ app.post('/updategov', (req, res) =>{
     });
 });
 
+// Atualiza função já existente no banco de dados
 app.post('/updatefunc', (req, res) =>{
     const db = new sqlite3.Database(dbPath);
     const id = req.body.id;
@@ -111,6 +121,7 @@ app.post('/updatefunc', (req, res) =>{
     });
 });
 
+// Atualiza alocação já existente no banco de dados
 app.post('/updatealloc', (req, res) =>{
     const db = new sqlite3.Database(dbPath);
     const idAloc = req.body.idaloc;
@@ -141,6 +152,7 @@ app.post('/updatealloc', (req, res) =>{
     });
 })
 
+// Renderiza página alterar funcionário com as informações do funcionário que contém o id especificado
 app.get('/alterarfuncionario', (req, res) =>{
     const id = req.query["id"];
     const db = new sqlite3.Database(dbPath);
@@ -155,6 +167,7 @@ app.get('/alterarfuncionario', (req, res) =>{
     });
 });
 
+// Renderiza página alterar função com as informações da função que contém o id especificado
 app.get('/alterarfunc', (req, res) =>{
     const id = req.query["id"];
     const db = new sqlite3.Database(dbPath);
@@ -169,6 +182,7 @@ app.get('/alterarfunc', (req, res) =>{
     });
 });
 
+// Renderiza página alterar governança com as informações da governança que contém o id especificado
 app.get('/alterargov', (req, res) =>{
     const id = req.query["id"];
     const db = new sqlite3.Database(dbPath);
@@ -182,6 +196,7 @@ app.get('/alterargov', (req, res) =>{
     });
 });
 
+// Atualiza informações do funcionário já cadastrado no banco de dados
 app.post('/updateemployee', (req, res) =>{
     const db = new sqlite3.Database(dbPath);
     const id = req.body.id;
@@ -205,6 +220,7 @@ app.post('/updateemployee', (req, res) =>{
     });
 });
 
+// Deleta atribuição do banco de dados
 app.post('/deleteatt', (req, res) =>{
     const db = new sqlite3.Database(dbPath);
     const id = req.body.alocacao;
@@ -218,6 +234,7 @@ app.post('/deleteatt', (req, res) =>{
     });
 });
 
+// Deleta projeto do banco de dados
 app.post('/deleteproject', (req, res) =>{
     const db = new sqlite3.Database(dbPath);
     const id = req.body.id;
@@ -231,6 +248,7 @@ app.post('/deleteproject', (req, res) =>{
     });
 });
 
+// Deleta funcionário do banco de dados
 app.post('/deleteemployee', (req, res) =>{
     const db = new sqlite3.Database(dbPath);
     const id = req.body.id;
@@ -244,6 +262,7 @@ app.post('/deleteemployee', (req, res) =>{
     });
 });
 
+// Deleta função do banco de dados
 app.post('/deletefunc', (req, res) =>{
     const db = new sqlite3.Database(dbPath);
     const id = req.body.id;
@@ -257,6 +276,7 @@ app.post('/deletefunc', (req, res) =>{
     });
 });
 
+// Deleta governança do banco de dados
 app.post('/deletegov', (req, res) =>{
     const db = new sqlite3.Database(dbPath);
     const id = req.body.id;
@@ -270,46 +290,57 @@ app.post('/deletegov', (req, res) =>{
     });
 });
 
+// Renderiza página atribuir
 app.get('/atribuir', (req, res) =>{
     res.render('atribuir');
 });
 
+// Renderiza página gráficos
 app.get('/graficos', (req, res) =>{
     res.render('graficos');
 });
 
+// Renderiza página home
 app.get('/home', (req, res) =>{
     res.render('home');
 });
 
+// Renderiza página index
 app.get('/', (req, res) =>{
     res.render('index');
 });
 
+// Renderiza página nova função
 app.get('/novaFuncao', (req, res) =>{
     res.render('novaFuncao');
 });
 
+// Renderiza página nova governança
 app.get('/novaGovernanca', (req, res) =>{
     res.render('novaGovernanca');
 });
 
+// Renderiza página novo
 app.get('/novo', (req, res) =>{
     res.render('novo');
 });
 
+// Renderiza página novo funcionário
 app.get('/novoFuncionario', (req, res) =>{
     res.render('novoFuncionario');
 });
 
+// Renderiza página novo projeto
 app.get('/novoProjeto', (req, res) =>{
     res.render('novoProjeto');
 });
 
+// Renderiza página tabela funcionários
 app.get('/tabelaFuncionarios', (req, res) =>{
     res.render('tabelaFuncionarios');
 });
 
+// Ouve o servidor na porta 3000
 app.listen(process.env.PORT || PORT, () =>{
     console.log(`Server is running on port ${PORT}`);
 });

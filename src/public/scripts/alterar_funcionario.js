@@ -1,3 +1,4 @@
+// Lógica que mostra o alerta de funcionário cadastrado
 if(localStorage.getItem('message')){
     if(localStorage.getItem('message') == 'updated employee'){
         toastShow();

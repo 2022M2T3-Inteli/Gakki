@@ -1,5 +1,7 @@
+// Array que armazena todas as alocações
 let arrAlloc = [];
 
+// Variáveis que armazenam as horas alocadas em cada mês
 let hoursAllocFuncJan = 0;
 let hoursAllocFuncFeb = 0;
 let hoursAllocFuncMar = 0;
@@ -13,7 +15,7 @@ let hoursAllocFuncOct = 0;
 let hoursAllocFuncNov = 0;
 let hoursAllocFuncDec = 0;
 
-
+// Variáveis que armazenam as horas disponiveis dos funcionários Yamaha em cada mês
 let hoursDisFuncYamahaJan = 0;
 let hoursDisFuncYamahaFeb = 0;
 let hoursDisFuncYamahaMar = 0;
@@ -27,7 +29,7 @@ let hoursDisFuncYamahaOct = 0;
 let hoursDisFuncYamahaNov = 0;
 let hoursDisFuncYamahaDec = 0;
 
-
+// Variáveis que armazenam as horas disponiveis dos funcionários em cada mês
 let hoursDisAllFuncJan = 0;
 let hoursDisAllFuncFeb = 0;
 let hoursDisAllFuncMar = 0;
@@ -41,11 +43,14 @@ let hoursDisAllFuncOct = 0;
 let hoursDisAllFuncNov = 0;
 let hoursDisAllFuncDec = 0;
 
+// Variável workload necessário
 let workloadNeed = 0;
+// Variável que contém a maior alocação
 let highestAlloc = 0;
+// Variável que retorna o valor da variável workloadNeed
 let highestAllocMinusAllHours = 0;
 
-
+// Função que gera o gráfico de saturação
 function generateWorkloadGraph(){
 let barGrafico = document.getElementById("barGrafico");
 const config = {
@@ -121,7 +126,7 @@ const config = {
 let myGraph = new Chart(barGrafico, config);
 }
 
-
+// Requisição ajax que retorna os dados das alocações
 let ajaxWorkload = new XMLHttpRequest();
 ajaxWorkload.open('GET', '/alocation', true);
 
@@ -191,7 +196,7 @@ ajaxWorkload.onreadystatechange = () =>{
 
     generateWorkloadGraph();
 
-
+    // Atualiza a tabela workload com as informações do banco de dados
     $('#tableGraph').append(`
 <tr>
   <td>Janeiro</td>
@@ -244,7 +249,7 @@ ajaxWorkload.onreadystatechange = () =>{
 `)
   }
 }
-
+// Envia requisição ajax
 ajaxWorkload.send();
 
 

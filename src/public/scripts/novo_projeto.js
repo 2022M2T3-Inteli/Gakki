@@ -1,3 +1,4 @@
+// Lógica que mostra o alerta projeto cadastrado com sucesso
 if(localStorage.getItem('message')){
     if(localStorage.getItem('message') == 'created project'){
         toastShow();
@@ -19,9 +20,10 @@ ajax.onreadystatechange = () =>{
         }
     }
 }
-
+// Envia requisição
 ajax.send();
 
+// Lógica que mostra o alerta projeto cadastrado com sucesso
 function addToast(){
     localStorage.setItem('message', 'created project')
 }

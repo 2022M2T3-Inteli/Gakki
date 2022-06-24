@@ -1,10 +1,12 @@
+// Criando uma requisição ajax
 let xmlh2 = new XMLHttpRequest();
+// Seleciona o id da página atual
 const urlid = new URLSearchParams(window.location.search); 
 let projid = urlid.get('id');
+// Array que contém os funcionários atribuidos
 let attFunc = [];
-console.log(attFunc);
 
-
+// Retorna as informações da alocação que contém o id especificado
 xmlh2.open('GET', `/alteraratt?id=${projid}`, true); 
 xmlh2.onreadystatechange = () => {
     if(xmlh2.status === 200 && xmlh2.readyState === 4) {
@@ -103,9 +105,10 @@ xmlh2.onreadystatechange = () => {
         }
     }
 };
-
+// Envia requisição
 xmlh2.send();
 
+// Espera alguns segundos e atualiza com os funcionários disponiveis
 setTimeout(() => {
   let xmlh = new XMLHttpRequest();
   xmlh.open('GET', '/employees', true);
@@ -215,13 +218,13 @@ setTimeout(() => {
           }
           }
   }
-  
+  // Envia requisição
   xmlh.send();
   
 }, 100);
 
 
-
+// Lógica que mostra o alerta projeto atualizado com sucesso
 if(localStorage.getItem('message')){
     if(localStorage.getItem('message') == 'updated project'){
         toastShow();
@@ -239,7 +242,7 @@ function toastShow(){
     });
 }
 
-
+// Alerta que pergunta se deseja atribuir funcionário
 function showAttribute (id){
     swal({
         title: `Deseja atribuir este funcionário a este projeto?`,
@@ -274,7 +277,7 @@ function showAttribute (id){
       });
 }
 
-
+// Alerta que pergunta se deseja remover funcionário
 function deleteAttribute (id){
     swal({
         title: `Deseja remover o funcionário?`,

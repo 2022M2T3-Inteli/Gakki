@@ -20,9 +20,10 @@ ajax.onreadystatechange = () =>{
         }
     }
 }
-
+// Envia requisição ajax
 ajax.send();
 
+// Função que mostra o alerta exlcuir projeto
 function showDeleteToastProject(id){
     swal({
         title: "Deseja excluir esse projeto?",

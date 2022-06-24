@@ -1,3 +1,4 @@
+// Lógica que mostra o alerta funcionário cadastrado com sucesso
 if(localStorage.getItem('message')){
     if(localStorage.getItem('message') == 'created employee'){
         toastShow();
@@ -20,6 +21,7 @@ ajax.onreadystatechange = () =>{
         }
     }
 }
+// Envia requisição
 ajax.send();
 
 
@@ -37,8 +39,10 @@ funcajax.onreadystatechange = () =>{
         }
     }
 }
+// Envia requisição
 funcajax.send();
 
+// Lógica que mostra o alerta funcionário cadastrado com sucesso
 function addToast(){
     localStorage.setItem('message', 'created employee')
 }

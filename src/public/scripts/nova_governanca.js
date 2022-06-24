@@ -1,3 +1,4 @@
+// Lógica que mostra o alerta governança cadastrada com sucesso
 if(localStorage.getItem('message')){
     if(localStorage.getItem('message') == 'created governance'){
         toastShow();
