@@ -1182,3 +1182,7 @@ td i {
     pointer-events: none;
     color: green;
 }
+
+table input {
+    pointer-events: all;
+}

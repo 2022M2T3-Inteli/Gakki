@@ -75,6 +75,42 @@ app.post('/updateproject', (req, res) =>{
     });
 });
 
+
+app.post('/updategov', (req, res) =>{
+    const db = new sqlite3.Database(dbPath);
+    const id = req.body.id;
+    const govpais = req.body.govpais;
+    const govest = req.body.govest;
+    const govend = req.body.govend;
+
+    const sql = `UPDATE Governanca SET Pais = ?, Estado = ?, Endereco = ? WHERE GovernancaID = ${id}`;
+
+    db.run(sql, [govpais, govest, govend], (err) =>{
+        if(err){
+            throw err;
+        } else {
+            res.redirect('back');
+        }
+    });
+});
+
+app.post('/updatefunc', (req, res) =>{
+    const db = new sqlite3.Database(dbPath);
+    const id = req.body.id;
+    const functitulo = req.body.functitulo;
+    const funcarea = req.body.funcarea;
+
+    const sql = `UPDATE Funcao SET Titulo = ?, Area = ? WHERE FuncaoID = ${id}`;
+
+    db.run(sql, [functitulo, funcarea], (err) =>{
+        if(err){
+            throw err;
+        } else {
+            res.redirect('back');
+        }
+    });
+});
+
 app.post('/updatealloc', (req, res) =>{
     const db = new sqlite3.Database(dbPath);
     const idAloc = req.body.idaloc;
@@ -115,6 +151,33 @@ app.get('/alterarfuncionario', (req, res) =>{
         } else {
             console.log(row);
             res.render('alterarfuncionario', { funcionario: row });
+        }
+    });
+});
+
+app.get('/alterarfunc', (req, res) =>{
+    const id = req.query["id"];
+    const db = new sqlite3.Database(dbPath);
+    const sql = `SELECT * FROM Funcao WHERE FuncaoID = ${id}`;
+    db.get(sql, [], (err, row) =>{
+        if(err){
+            throw err;
+        } else {
+            console.log(row);
+            res.render('alterarfunc', { funcao: row });
+        }
+    });
+});
+
+app.get('/alterargov', (req, res) =>{
+    const id = req.query["id"];
+    const db = new sqlite3.Database(dbPath);
+    const sql = `SELECT * FROM Governanca WHERE GovernancaID = ${id}`;
+    db.get(sql, [], (err, row) =>{
+        if(err){
+            throw err;
+        } else {
+            res.render(`alterargov`, { gov: row });
         }
     });
 });
@@ -172,6 +235,32 @@ app.post('/deleteemployee', (req, res) =>{
     const db = new sqlite3.Database(dbPath);
     const id = req.body.id;
     const sql = `DELETE FROM Funcionario WHERE FuncionarioID = ${id}`;
+    db.run(sql, [], (err) =>{
+        if(err){
+            throw err;
+        } else {
+            res.send();
+        }
+    });
+});
+
+app.post('/deletefunc', (req, res) =>{
+    const db = new sqlite3.Database(dbPath);
+    const id = req.body.id;
+    const sql = `DELETE FROM Funcao WHERE FuncaoID = ${id}`;
+    db.run(sql, [], (err) =>{
+        if(err){
+            throw err;
+        } else {
+            res.send();
+        }
+    });
+});
+
+app.post('/deletegov', (req, res) =>{
+    const db = new sqlite3.Database(dbPath);
+    const id = req.body.id;
+    const sql = `DELETE FROM Governanca WHERE GovernancaID = ${id}`;
     db.run(sql, [], (err) =>{
         if(err){
             throw err;
