@@ -190,6 +190,58 @@ ajaxWorkload.onreadystatechange = () =>{
     workloadNeed = highestAllocMinusAllHours + hoursDisAllFuncJan
 
     generateWorkloadGraph();
+
+
+    $('#tableGraph').append(`
+<tr>
+  <td>Janeiro</td>
+  <td>${hoursAllocFuncJan}</td>
+</tr>
+<tr>
+  <td>Fevereiro</td>
+  <td>${hoursAllocFuncFeb}</td>
+</tr>
+<tr>
+  <td>Março</td>
+  <td>${hoursAllocFuncMar}</td>
+</tr>
+<tr>
+  <td>Abril</td>
+  <td>${hoursAllocFuncApr}</td>
+</tr>
+<tr>
+  <td>Maio</td>
+  <td>${hoursAllocFuncMay}</td>
+</tr>
+<tr>
+  <td>Junho</td>
+  <td>${hoursAllocFuncJun}</td>
+</tr>
+<tr>
+  <td>Julho</td>
+  <td>${hoursAllocFuncJul}</td>
+</tr>
+<tr>
+  <td>Agosto</td>
+  <td>${hoursAllocFuncAug}</td>
+</tr>
+<tr>
+  <td>Setembro</td>
+  <td>${hoursAllocFuncSep}</td>
+</tr>
+<tr>
+  <td>Outubro</td>
+  <td>${hoursAllocFuncOct}</td>
+</tr>
+<tr>
+  <td>Novembro</td>
+  <td>${hoursAllocFuncNov}</td>
+</tr>
+<tr>
+  <td>Dezembro</td>
+  <td>${hoursAllocFuncDec}</td>
+</tr>
+`)
   }
 }
 
