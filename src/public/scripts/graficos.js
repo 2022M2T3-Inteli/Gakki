@@ -308,14 +308,3 @@ ajax2.onreadystatechange = () => {
 };
 // envia a requisição ajax
 ajax2.send();
-
-
-let ajaxTable = new XMLHttpRequest();
-ajaxTable.open('GET', '/alocation', true );
-ajaxTable.onreadystatechange = () =>{
-  if(ajaxTable.status === 200 && ajaxTable.readyState === 4){
-     let response = JSON.parse(ajaxTable.responseText);
-     console.log(response);
-  }
-}
-ajaxTable.send();
