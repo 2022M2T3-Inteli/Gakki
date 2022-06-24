@@ -1,3 +1,5 @@
+let arrAlloc = [];
+
 let hoursAllocFuncJan = 0;
 let hoursAllocFuncFeb = 0;
 let hoursAllocFuncMar = 0;
@@ -38,6 +40,10 @@ let hoursDisAllFuncSep = 0;
 let hoursDisAllFuncOct = 0;
 let hoursDisAllFuncNov = 0;
 let hoursDisAllFuncDec = 0;
+
+let workloadNeed = 0;
+let highestAlloc = 0;
+let highestAllocMinusAllHours = 0;
 
 
 function generateWorkloadGraph(){
@@ -82,8 +88,8 @@ const config = {
       {
         label: "Workload Needed",
         data: [
-          500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500,
-          500,
+          workloadNeed, workloadNeed, workloadNeed, workloadNeed, workloadNeed, workloadNeed, workloadNeed, workloadNeed, workloadNeed, workloadNeed, workloadNeed,
+          workloadNeed,
         ],
         type: "line",
         borderColor: "#CCCC00",
@@ -123,7 +129,6 @@ ajaxWorkload.onreadystatechange = () =>{
   if(ajaxWorkload.status === 200 && ajaxWorkload.readyState === 4){
     let response = JSON.parse(ajaxWorkload.responseText);
     for(let i = 0; i < response.length; i++){
-      console.log(response[i]);
         hoursAllocFuncJan += response[i].HorasJaneiro
         hoursAllocFuncFeb += response[i].HorasFevereiro
         hoursAllocFuncMar += response[i].HorasMarco
@@ -166,8 +171,24 @@ ajaxWorkload.onreadystatechange = () =>{
         hoursDisAllFuncNov += response[i].HorasProjetos
         hoursDisAllFuncDec += response[i].HorasProjetos
     }
-    console.log(hoursDisFuncYamahaJan);
-    console.log(hoursDisAllFuncJan);
+    arrAlloc.push(hoursAllocFuncJan);
+    arrAlloc.push(hoursAllocFuncFeb);
+    arrAlloc.push(hoursAllocFuncMar);
+    arrAlloc.push(hoursAllocFuncApr);
+    arrAlloc.push(hoursAllocFuncMay);
+    arrAlloc.push(hoursAllocFuncJun);
+    arrAlloc.push(hoursAllocFuncJul);
+    arrAlloc.push(hoursAllocFuncAug);
+    arrAlloc.push(hoursAllocFuncSep);
+    arrAlloc.push(hoursAllocFuncOct);
+    arrAlloc.push(hoursAllocFuncNov);
+    arrAlloc.push(hoursAllocFuncDec);
+
+    arrAlloc.sort((a, b) => a - b);
+    highestAlloc = arrAlloc[arrAlloc.length - 1];
+    highestAllocMinusAllHours = (highestAlloc - hoursDisAllFuncJan) / 2;
+    workloadNeed = highestAllocMinusAllHours + hoursDisAllFuncJan
+
     generateWorkloadGraph();
   }
 }
@@ -287,3 +308,14 @@ ajax2.onreadystatechange = () => {
 };
 // envia a requisição ajax
 ajax2.send();
+
+
+let ajaxTable = new XMLHttpRequest();
+ajaxTable.open('GET', '/alocation', true );
+ajaxTable.onreadystatechange = () =>{
+  if(ajaxTable.status === 200 && ajaxTable.readyState === 4){
+     let response = JSON.parse(ajaxTable.responseText);
+     console.log(response);
+  }
+}
+ajaxTable.send();
