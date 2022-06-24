@@ -26,7 +26,7 @@ xmlh2.onreadystatechange = () => {
                 <div class="header">
                     <h1>${response[i].Nome} ${response[i].Sobrenome}</h1>
                 </div>
-                <div class="get">
+                <div class="body">
                     <h4>Participação no Projeto</h4>
                     <input id="idfunc" name="idfunc" type="hidden" value="${response[i].FuncionarioID}" >
                     <input id="idaloc" name="idaloc" type="hidden" value="${response[i].AlocacaoID}" > 
@@ -36,12 +36,10 @@ xmlh2.onreadystatechange = () => {
                   <p>Data de Início</p>
                   <input type="date" id="inicial" name="inicial">
                 </div>
-              </div>
-              <div id="datas">
                 <div class="dataf">
-                  <p>Data de Fim</p>
-                  <input type="date" id="final" name="final">
-                </div>
+                <p>Data de Fim</p>
+                <input type="date" id="final" name="final">
+              </div>
               </div>
               <h4>Horas Mensais neste Projeto</h4>
               <div id="meses">
@@ -94,9 +92,9 @@ xmlh2.onreadystatechange = () => {
                   <input type="number" name="hrdez" class="hr dez" value="${response[i].HorasDezembro}">
                 </div>
               </div>
-                </div>
-                <div class="save">
-                <button class="btn modal-btn" data-target-modal="#todo_form${response[i].FuncionarioID}">Salvar Alterações</button>
+              <div class="save">
+              <button class="btn modal-btn" data-target-modal="#todo_form${response[i].FuncionarioID}">Salvar Alterações</button>
+              </div>
                 </div>
                 </form>
                 `);
