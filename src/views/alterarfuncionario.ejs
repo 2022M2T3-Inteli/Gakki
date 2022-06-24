@@ -81,74 +81,80 @@
       <!--Entidade de adicionar novo funcionario-->
         <div class="contents">
           <div class="container mt-5">
-            <div class="title">
-              <h1 class="adicionar-func">Atualizar informações do funcionário</h1>
-              <p>Atualize as informações conforme o necessário.</p>
-            </div>
             <form action="/updateemployee" method="post">
-            <div class="rows">
-              <div class="row1">
-                <div class="offset-3 col-3">
-
-                </div>
-                <div class="offset-3 col-3">
-                    <label for="nome">Nome</label>
-                    <br>
-                    <input type="text" name="nome" id="nome" placeholder="Ex. Beatriz, Frederico, Luiz Augusto, Luiz Carlos, Pedro, Sergio, Thainá" value=<%= funcionario.Nome %>  required>
-                </div>
-                <div class="col-6">
-                    <label for="sobrenome">Sobrenome</label>
-                    <br>
-                    <input type="text" name="sobrenome" id="sobrenome" placeholder="Ex. Hirasaki, Schur, Ferreira, Silva, Lucas, Lima" value=<%= funcionario.Sobrenome %> required>
-                </div>
-              </div>
-              <div class="row7">
-            <div class="offset-3 col-9">
-                <label for="funcionario">Funcionário Yamaha?</label>
-                <div class="btn-group mt-3" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked value="1">
-                    <label class="btn btn-outline-primary" for="btnradio1">Sim</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="0">
-                    <label class="btn btn-outline-primary" for="btnradio2">Não</label>
+              <div class="contents">
+                <div class="container mt-5">
+                  <div class="title">
+                    <h1 class="adicionar-func">Atualizar informações do funcionário</h1>
+                    <p>Atualize as informações conforme o necessário.</p>
                   </div>
-            </div>
-          </div>
-          <div class="row1">
-            <div class="offset-3 col-3">
-                <label for="registro" id="labelTipo1">Registro</label>
-                <br>
-                <input type="text" name="registro" id="tipo1" placeholder="Ex. Y180522" value=<%= funcionario.Registro %>  required>
-            </div>
-          </div>
-          <div class="row1">
-            <label for="governanca" id="labelTipo2">Governança</label>
-            <br>
-            <select name="governanca" id="tipo2" class="governanca" required>
-                <option value=<%= funcionario.GovernancaID %> ><%= funcionario.Estado %> </option>
-            </select>
-        </div>
-          <div class="row1">
-            <div class="offset-3 col-3">
-                <label for="jornada-trabalho">Horas Disponíveis para Projetos</label>
-                <br>
-                <input type="number" name="jornadaTrabalho" id="jornadaTrabalho" placeholder="Ex. 88" value=<%= funcionario.HorasProjetos %>  required>
-            </div>
-          </div>
-          <div class="row1">
-              <label for="cargo">Cargo</label>
-              <br>
-              <select name="funcaoID" id="funcaoID" required>
-                <option value=<%= funcionario.FuncaoID %> ><%= funcionario.Titulo %> </option>
-              </select>
-          </div>
-          <div class="row5">
-            <div class="offset-4 col-8 mt-4">
-              <button id="createEmployee" type="submit" class="btn" onclick="addToastUpdate()">Atualizar funcionário</button>
-            </div>
-          </div>
-        </div>
-     </form>
+                  <div class="details">
+                    <div class="projectlist update">
+                      <div class="cardHeader">
+                        <h2>
+                          Informações do Projeto
+                        </h2>
+                      </div>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>Sobrenome</th>
+                            <th>Registro</th>
+                            <th>Governança</th>
+                          </tr>
+                          <tr>
+                            <td> 
+                              <input id="id" name="id" type="hidden" value=<%= funcionario.FuncionarioID %>> 
+                              <input name="placeholder" type="text" disabled value=<%= funcionario.FuncionarioID %>> 
+                            </td>
+                            <td>
+                              <input type="text" name="nome" id="nome" placeholder="Ex. Beatriz, Frederico, Luiz Augusto, Luiz Carlos, Pedro, Sergio, Thainá" value=<%= funcionario.Nome %>  required>
+                            </td>
+                            <td>
+                              <input type="text" name="sobrenome" id="sobrenome" placeholder="Ex. Hirasaki, Schur, Ferreira, Silva, Lucas, Lima" value=<%= funcionario.Sobrenome %> required>
+                            </td>
+                            <td>
+                              <input type="text" name="registro" id="tipo1" placeholder="Ex. Y180522" value=<%= funcionario.Registro %>  required>
+                            </td>
+                            <td>
+                              <select name="governanca" id="tipo2" class="governanca" required>
+                                <option value=<%= funcionario.GovernancaID %> ><%= funcionario.Estado %> </option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Funcionário Yamaha?</th>
+                            <th>Horas Disponíveis Para Projeto</th>
+                            <th>Cargo</th>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="btn-group mt-3" role="group" aria-label="Basic radio toggle button group">
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked value="1">
+                                <label class="btn btn-outline-primary" for="btnradio1">Sim</label>
+            
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="0">
+                                <label class="btn btn-outline-primary" for="btnradio2">Não</label>
+                              </div>                      
+                            </td>
+                            <td>
+                              <input type="number" name="jornadaTrabalho" id="jornadaTrabalho" placeholder="Ex. 88" value=<%= funcionario.HorasProjetos %>  required>
+                            </td>
+                            <td>
+                              <select name="funcaoID" id="funcaoID" required>
+                                <option value=<%= funcionario.FuncaoID %> ><%= funcionario.Titulo %> </option>
+                              </select>
+                            </td>
+                          </tr>
+                        </thead>
+                      </table>
+                      <div class="offset-4 col-8 mt-4">
+                        <button id="createEmployee" type="submit" class="btn" onclick="addToastUpdate()">Atualizar funcionário</button>
+                      </div>
+                  </div>
+            </form>
       </div>
     </div>
     </div>

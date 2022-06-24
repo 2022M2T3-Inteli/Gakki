@@ -1197,3 +1197,13 @@ input {
     text-align: center;
     margin-bottom: 10px;
 }
+
+.offset-4.col-8.mt-4 {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.offset-4.col-8.mt-4:hover button{
+    background: #691a11;
+}
